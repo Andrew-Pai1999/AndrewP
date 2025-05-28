@@ -1,0 +1,22 @@
+vagrant_original is the original...so I can edit vagrant
+1/31/2019
+
+
+vagrant4 and vagrant5 are when I first got things working with my own uniform magnetic field.  
+
+vAGRANT 4 USES 4 fold symmetry whiel vagrant5 uses three fold symmetry.
+
+to run opal
+
+opal cyclotron2.in | tee cyclotron2.out
+
+also remember that I put notes on the desktop of my windows machine.  
+
+for gnuplot
+
+gnuplot --persist cyclotron2.gpl
+
+Well shit....I went back to vagrant3 and switched to Carboncycle and it just worked with Lenas field map
+
+for some reason radius 0 has to have a number even if it is small
+
