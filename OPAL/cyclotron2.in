@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //                  input file for single particle tracking	                //
-//      identicically simulate the B Field in main magnet and trim coil     //
+//      identically simulate the B Field in main magnet and trim coil       //
 //////////////////////////////////////////////////////////////////////////////
 
 OPTION, VERSION = 20200; 
