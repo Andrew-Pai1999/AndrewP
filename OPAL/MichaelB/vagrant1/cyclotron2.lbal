@@ -1,0 +1,60 @@
+SDDS1
+&description
+        text="Processor statistics 'cyclotron2.in' 30/01/202014:37:23",
+        contents="stat parameters"
+&end
+&parameter
+        name=processors,
+        type=long,
+        description="Number of Cores used"
+&end
+&parameter
+        name=revision,
+        type=string,
+        description="git revision of opal"
+&end
+&parameter
+        name=flavor,
+        type=string,
+        description="OPAL flavor that wrote file"
+&end
+&column
+        name=t,
+        type=double,
+        units=ns,
+        description="1 Time"
+&end
+&column
+        name=processor-0,
+        type=long,
+        units=1,
+        description="2 Number of particles of processor 0"
+&end
+&data
+        mode=ascii,
+        no_row_counts=1
+&end
+1
+OPAL 2.0.1 git rev. #
+opal-cycl
+0.000000000000000e+00         	1
+1.645278051990786e+00         	1
+3.290556103981573e+00         	1
+4.935834155972359e+00         	1
+6.581112207963145e+00         	1
+8.226390259953932e+00         	1
+9.871668311944719e+00         	1
+1.151694636393550e+01         	1
+1.316222441592629e+01         	1
+1.480750246791708e+01         	1
+1.645278051990786e+01         	1
+1.809805857189865e+01         	1
+1.974333662388944e+01         	1
+2.138861467588023e+01         	1
+2.303389272787101e+01         	1
+2.467917077986180e+01         	1
+2.632444883185258e+01         	1
+2.796972688384337e+01         	1
+2.961500493583416e+01         	1
+3.126028298782494e+01         	1
+3.290556103981573e+01         	1
