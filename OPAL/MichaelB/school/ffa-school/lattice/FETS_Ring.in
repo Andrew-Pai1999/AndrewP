@@ -1,0 +1,228 @@
+Option, ECHO=TRUE;
+//////////////////////////////////////////////////////////////////////////////
+// Input file for single bunch tracking through ERIT FFA ring              //
+//////////////////////////////////////////////////////////////////////////////
+Title,string="Small ring using OPAL code";
+Option, ASCIIDUMP=TRUE;
+Option, ENABLEHDF5=FALSE;
+OPTION, PSDUMPFREQ=100000;
+Option, VERSION=10900;
+Option, SPTDUMPFREQ=1;
+Option, STATDUMPFREQ=100000;
+
+//////////// BEAM PARAMETERS //////////////////
+REAL E0 = __energy__/1000; // [GeV]
+REAL BEAM_THETA_INIT=__beam_theta__; // fraction of E0
+REAL BEAM_PHI_INIT=__beam_phi_init__; // [fraction of cell length]; 0 is on PROBE01
+REAL BEAM_CHARGE=__beam_charge__; // [fraction of cell length]; 0 is on PROBE01
+REAL LATTICE_PHI_OFFSET=__lattice_phi_offset__; // [fraction of cell length]; 0 means centre of cell lines up with phi = 0.
+
+/////////// MAIN MAGNET //////////////////////
+REAL FFA_B_MEAN = __b_mean__; // [T]; mean field over the entire cell at R0
+REAL FFA_DF_RATIO=__df_ratio__; // []; BD/BF
+REAL FFA_F_LENGTH=__f_length__; // [fraction of cell length]
+REAL FFA_D_LENGTH=__d_length__; // [fraction of cell length]
+REAL FFA_TAN_DELTA=__tan_delta__; // []
+REAL FFA_FIELD_INDEX=__field_index__; // []
+REAL FFA_MAX_Y_POWER=__max_y_power__; // []
+REAL FFA_F_END_LENGTH=__f_end_length__; // [] end length in multiples of centre length
+REAL FFA_D_END_LENGTH=__d_end_length__; // [] end length in multiples of centre length
+REAL FFA_NEG_EXTENT=__neg_extent__; // [m]
+REAL FFA_POS_EXTENT=__pos_extent__; // [m]
+
+/////////////////// GENERAL ////////////////////////////////////
+
+REAL STEP_SIZE_MM = __step_size__; // [mm]
+REAL N_TURNS = __n_turns__; // number of turns at 2.55 MeV/c
+REAL R0 = 4.;
+REAL N_CELLS=15; // NOTE!! If you change the number of cells, you must *by hand*
+                 // change the number of ringprobes
+REAL FFA_CELL_LENGTH=2*PI/N_CELLS;
+REAL CO_OFFSET = -1*R0;
+REAL MILLIMETRE = 1000.0;
+REAL RADIANS = PI/180;
+REAL RMIN=R0-2.0;
+REAL RMAX=R0+2.0;
+REAL BEAM_PHI_INIT_RAD=FFA_CELL_LENGTH*BEAM_PHI_INIT*180/PI;
+
+
+/////////////////// RING PROBES //////////////////////////////////
+REAL RING_PROBE_PHI_OFFSET=0.0;
+REAL PROBE_PHI=(+2.)*PI/N_CELLS*(1.0+RING_PROBE_PHI_OFFSET);
+BUILD_PROBE(NAME, ANGLE): MACRO {
+    NAME: PROBE, xstart=RMIN*1000*cos(ANGLE),  xend=RMAX*1000*cos(ANGLE),  ystart=RMIN*1000*sin(ANGLE),  yend=RMAX*1000*sin(ANGLE);
+}
+
+REAL THIS_PROBE_PHI=BEAM_PHI_INIT_RAD;
+BUILD_PROBE(RingProbe01, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe02, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe03, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe04, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe05, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe06, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe07, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe08, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe09, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe10, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe11, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe12, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe13, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe14, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+BUILD_PROBE(RingProbe15, THIS_PROBE_PHI);
+THIS_PROBE_PHI = EVAL(THIS_PROBE_PHI+2.*PI/N_CELLS);
+
+ringprobe: Line = (RingProbe01, RingProbe02, RingProbe03, RingProbe04, RingProbe05, 
+                   RingProbe06, RingProbe07, RingProbe08, RingProbe09, RingProbe10,
+                   RingProbe11, RingProbe12, RingProbe13, RingProbe14, RingProbe15);
+
+/////////////////// MAIN MAGNETS //////////////////////////////////
+
+// Aim is that DF ratio controls relative amount of bend out vs bend in (and associated quad strengths)
+// independent of the magnet length parameters
+// * B_MEAN controls the total dipole field;
+// * DF_RATIO controls the relative amount of vertical vs horizontal focussing
+// * FIELD_INDEX controls the focusing strength of each magnet and width of the magnet
+// * TAN_DELTA controls tan delta
+// * END_LENGTH and MAX_Y_POWER control the degree of non-linearity
+// * DF_RATIO, END_LENGTH and TAN_DELTA also control the vertical tune 
+// * RF_VOLTAGE, RF_PHASE controls the RF voltage and phase
+
+// length
+REAL FFA_F_CENTRE_LENGTH=FFA_CELL_LENGTH*FFA_F_LENGTH;
+REAL FFA_D_CENTRE_LENGTH=FFA_CELL_LENGTH*FFA_D_LENGTH;
+// field magnitude
+REAL FFA_BF=-1*FFA_B_MEAN/(FFA_F_LENGTH+FFA_DF_RATIO*FFA_D_LENGTH);
+REAL FFA_BD=FFA_DF_RATIO*FFA_BF;
+
+// Magnet has 2 end lengths; then a centre length; then 2 end lengths
+// If STAY_CLEAR=0 then B = B0/2. at the start/end of the magnet
+REAL STAY_CLEAR = 2;
+REAL START_D = FFA_D_CENTRE_LENGTH*FFA_D_END_LENGTH*STAY_CLEAR;
+REAL END_D = FFA_D_CENTRE_LENGTH*(1+FFA_D_END_LENGTH*STAY_CLEAR*2);
+REAL START_F = FFA_F_CENTRE_LENGTH*FFA_F_END_LENGTH*STAY_CLEAR;
+REAL END_F = FFA_F_CENTRE_LENGTH*(1+FFA_F_END_LENGTH*STAY_CLEAR*2);
+REAL D_PHI_DRIFT = (FFA_CELL_LENGTH-END_F- END_D)/2; //
+// Bounding box extends for 0.5 centre length + 8 end lengths in each direction
+REAL BB = 16;
+REAL FFA_D_AZIMUTHAL_EXTENT = FFA_D_CENTRE_LENGTH*(0.5+FFA_D_END_LENGTH*BB);
+REAL FFA_F_AZIMUTHAL_EXTENT = FFA_F_CENTRE_LENGTH*(0.5+FFA_F_END_LENGTH*BB);
+
+REAL DX_DRIFT = R0*sin(D_PHI_DRIFT);
+REAL DY_DRIFT = R0*(1-cos(D_PHI_DRIFT));
+REAL DXN_DRIFT = cos(D_PHI_DRIFT);
+REAL DYN_DRIFT = sin(D_PHI_DRIFT);
+
+REAL M_P = 0.93827208; // GeV/c^2
+REAL P0 = ((E0+M_P)^2-M_P^2)^0.5; // GeV/c
+
+value, {P0, E0, M_P};
+
+REAL C_LIGHT = 300.; // MM/NS
+
+REAL STEP_SIZE_NS = STEP_SIZE_MM/(P0/(E0+M_P)*C_LIGHT); // ns
+
+REAL BFREQ = 1./1.15213; // MHz;
+REAL STEPS_PER_TURN = 1.e3/BFREQ/STEP_SIZE_NS;
+REAL MAX_STEPS = N_TURNS*STEPS_PER_TURN;
+
+value, {BFREQ, STEP_SIZE_NS, STEP_SIZE_MM, MAX_STEPS, STEPS_PER_TURN};
+
+value, {START_D, END_D, FFA_D_CENTRE_LENGTH, FFA_BD};
+value, {START_F, END_F, FFA_F_CENTRE_LENGTH, FFA_BF};
+REAL DF_RATIO = FFA_BD/FFA_BF;
+REAL MEAN_B = (FFA_BD*FFA_D_CENTRE_LENGTH + FFA_BF*FFA_F_CENTRE_LENGTH)/FFA_CELL_LENGTH;
+value, {DF_RATIO, MEAN_B};
+value, {D_PHI_DRIFT, DX_DRIFT, DY_DRIFT, DXN_DRIFT, DYN_DRIFT};
+
+ringdef: RINGDEFINITION, HARMONIC_NUMBER=1, LAT_RINIT=R0, LAT_PHIINIT=0,
+         LAT_THETAINIT=0.0, BEAM_PHIINIT=BEAM_PHI_INIT_RAD, BEAM_PRINIT=BEAM_THETA_INIT,
+         BEAM_RINIT=R0+CO_OFFSET, SYMMETRY=1, RFFREQ=1, IS_CLOSED=false,
+         MIN_R=R0-2, MAX_R=R0+2;
+
+halfDrift: LOCAL_CARTESIAN_OFFSET, end_position_x=DX_DRIFT*MILLIMETRE,
+                                   end_position_y=DY_DRIFT*MILLIMETRE,
+                                   end_normal_x=DXN_DRIFT,
+                                   end_normal_y=DYN_DRIFT;
+magnetD: ScalingFFAGMagnet, B0=FFA_BD,
+                            R0=R0,
+                            FIELD_INDEX=FFA_FIELD_INDEX,
+                            TAN_DELTA=FFA_TAN_DELTA, 
+                            MAX_Y_POWER=FFA_MAX_Y_POWER,
+                            CENTRE_LENGTH=R0*FFA_D_CENTRE_LENGTH,
+                            END_LENGTH=R0*FFA_D_CENTRE_LENGTH*FFA_D_END_LENGTH,
+                            RADIAL_NEG_EXTENT=FFA_NEG_EXTENT,
+                            RADIAL_POS_EXTENT=FFA_POS_EXTENT,
+                            MAGNET_START=R0*START_D,
+                            MAGNET_END=R0*END_D,
+                            HEIGHT=1.,
+                            AZIMUTHAL_EXTENT=R0*FFA_D_AZIMUTHAL_EXTENT;
+magnetF: ScalingFFAGMagnet, B0=FFA_BF,
+                            R0=R0,
+                            FIELD_INDEX=FFA_FIELD_INDEX,
+                            TAN_DELTA=FFA_TAN_DELTA,
+                            MAX_Y_POWER=FFA_MAX_Y_POWER,
+                            CENTRE_LENGTH=R0*FFA_F_CENTRE_LENGTH,
+                            END_LENGTH=R0*FFA_F_CENTRE_LENGTH*FFA_F_END_LENGTH,
+                            RADIAL_NEG_EXTENT=FFA_NEG_EXTENT,
+                            RADIAL_POS_EXTENT=FFA_POS_EXTENT,
+                            MAGNET_START=R0*START_F,
+                            MAGNET_END=R0*END_F,
+                            HEIGHT=1.,
+                            AZIMUTHAL_EXTENT=R0*FFA_F_AZIMUTHAL_EXTENT;
+
+
+///////////// FIELD OUTPUT ////////////////////////////////////////////////////
+
+REAL MAP_NR_STEPS=400;
+REAL MAP_R_STEP=(FFA_POS_EXTENT+FFA_NEG_EXTENT)/MAP_NR_STEPS;
+
+__no_field_maps__DUMPFIELDS, X_START=-5., X_STEPS=501, DX=0.02, Y_START=-5., Y_STEPS=501, DY=0.02, Z_START=0.001, Z_STEPS=1, DZ=0.100, FILE_NAME="FieldMapXY.dat";
+__no_field_maps__DUMPEMFIELDS, COORDINATE_SYSTEM=CYLINDRICAL, R_START=R0-FFA_NEG_EXTENT, R_STEPS=MAP_NR_STEPS, DR=MAP_R_STEP, PHI_START=-24.*RADIANS, PHI_STEPS=24.*8*4, DPHI=0.25*RADIANS, Z_START=0, Z_STEPS=1, DZ=0.100, T_START=0, T_STEPS=1, DT=1., FILE_NAME="FieldMapRPHI.dat";
+DUMPEMFIELDS, COORDINATE_SYSTEM=CYLINDRICAL, R_START=R0, R_STEPS=80, DR=0.01, PHI_START=0.*RADIANS,  PHI_STEPS=1,   DPHI=1*RADIANS,    Z_START=0, Z_STEPS=1, DZ=0.100, T_START=0., T_STEPS=1, DT=2., FILE_NAME="ProbeField.dat";
+
+REAL D_PHI_LATT=LATTICE_PHI_OFFSET*FFA_CELL_LENGTH;
+REAL DX_LATT = R0*sin(D_PHI_LATT);
+REAL DY_LATT = R0*(1-cos(D_PHI_LATT));
+REAL DXN_LATT = cos(D_PHI_LATT);
+REAL DYN_LATT = sin(D_PHI_LATT);
+latticeOffset: LOCAL_CARTESIAN_OFFSET, end_position_x=DX_LATT*MILLIMETRE,
+                                       end_position_y=DY_LATT*MILLIMETRE,
+                                       end_normal_x=DXN_LATT,
+                                       end_normal_y=DYN_LATT;
+
+cell: Line = (halfDrift, magnetF, magnetD, halfDrift);
+l1: Line = (ringdef,
+            latticeOffset,
+            cell, cell, cell, cell, cell,
+            cell, cell, cell, cell, cell,
+            cell, cell, cell, cell, cell
+            , ringprobe
+           );
+
+Dist1: DISTRIBUTION, TYPE=fromfile, FNAME="__beamfile__", INPUTMOUNITS=NONE;
+
+Fs1:FIELDSOLVER, FSTYPE=None, MX=5, MY=5, MT=5,
+                 PARFFTX=true, PARFFTY=false, PARFFTT=false,
+                 BCFFTX=open, BCFFTY=open, BCFFTT=open,BBOXINCR=2;
+
+beam1: BEAM, PARTICLE=PROTON, pc=P0, NPART=__n_events__, BCURRENT=__current__, CHARGE=1.0, BFREQ=BFREQ;
+
+TRACK, LINE=l1, BEAM=beam1, MAXSTEPS=MAX_STEPS, STEPSPERTURN=STEPS_PER_TURN;
+RUN, METHOD="CYCLOTRON-T", BEAM=beam1, FIELDSOLVER=Fs1, DISTRIBUTION=Dist1;
+ENDTRACK;
+STOP;
+
