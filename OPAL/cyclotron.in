@@ -78,8 +78,8 @@ VALUE,{gamma,beta,gammabeta,Ebeam,Brho,CLIGHT};   // Prints values in output to 
 
 
 
-REAL pr0  = -0.0164;
-REAL r0   = 2037;
+REAL pr0  = 0.0;
+REAL r0   = 0.0;
 
 REAL phi01 = 192.0+12;
 REAL phi02 = phi01+180.0;
@@ -109,7 +109,7 @@ REAL P0 = gamma*beta*PMASS;
 // Definition of 10 trim coils for OPAL-cycl simulation with RMIN and RMAX//
 
 
-TC1:  TRIMCOIL, TYPE="PSI-BFIELD-MIRRORED", RMIN=99.949, RMAX=164.719, BMAX=1.0e-3, SLPTC=1;
+TC1:  TRIMCOIL, TYPE="PSI-BFIELD-MIRRORED", RMIN=99.949,  RMAX=164.719, BMAX=1.0e-3, SLPTC=1;
 TC2:  TRIMCOIL, TYPE="PSI-BFIELD-MIRRORED", RMIN=186.055, RMAX=250.825, BMAX=1.0e-3, SLPTC=1;
 TC3:  TRIMCOIL, TYPE="PSI-BFIELD-MIRRORED", RMIN=272.415, RMAX=337.185, BMAX=1.0e-3, SLPTC=1;
 TC4:  TRIMCOIL, TYPE="PSI-BFIELD-MIRRORED", RMIN=358.775, RMAX=423.545, BMAX=1.0e-3, SLPTC=1;
@@ -121,15 +121,23 @@ TC9:  TRIMCOIL, TYPE="PSI-BFIELD-MIRRORED", RMIN=790.375, RMAX=855.145, BMAX=1.0
 TC10: TRIMCOIL, TYPE="PSI-BFIELD-MIRRORED", RMIN=876.735, RMAX=941.505, BMAX=1.0e-3, SLPTC=1;
 
 
-// label:mm means main magnet
-// TYPE: The data format of field map.
-// CYHARMON: The harmonic number of the cyclotron h.
-
 mm: CYCLOTRON, TYPE="CARBONCYCL", CYHARMON=2, PHIINIT=110.0, PRINIT=pr0, RINIT=r0 , 
            SYMMETRY=3.0, RFFREQ=f1, FMAPFN="bfield.dat", 
            TRIMCOIL={TC1 TC2 TC3 TC4 TC5 TC6 TC7 TC8 TC9 TC10} , MBTC=14e-3, SLPTC=6.0;
-	         
 
+
+//--------------------------------------------------------------//
+// label:    mm means main magnet
+// TYPE:     The data format of field map.
+// CYHARMON: The harmonic number of the cyclotron h.	         
+// PHIINIT:  The initial azimuth [deg] of the reference particle (default: 0).
+// PRINIT:   Initial radial momentum of the reference particle Pr=βr*γ(default: 0).
+// RINIT:    The initial radius [mm] of the reference particle (default: 0).
+// SYMMETRY: Number of sector in the cyclotron.
+// RFFREQ:   RF frequency
+// FMAPFN:   Name of B-field data file
+//SLPTC:     Slopes of the rising edge [1/mm] (for PSI-BFIELD-MIRRORED type only)
+//--------------------------------------------------------------//
 
 Rf0: RFCAVITY, VOLT=volt1st, FMAPFN="rffield1.dat", TYPE="SINGLEGAP", 
 FREQ=f1, RMIN = r1, RMAX = r2, ANGLE=35.0,  PDIS = 416.0, GAPWIDTH = 300.0, PHI0=phi01; 
