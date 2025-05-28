@@ -1,0 +1,78 @@
+//########Original Options ############
+
+OPTION, VERSION = 20200;
+//OPTION, VERSION = 20000;
+OPTION, ECHO= FALSE;
+OPTION, PSDUMPFREQ= 10;
+//OPTION, PSDUMPFRAME= REFERENCE;
+
+//#######################################
+
+
+//########   Carol's options  ###########
+/*
+OPTION, ECHO=FALSE;
+OPTION, SPTDUMPFREQ = 10;
+OPTION, REPARTFREQ = 10;
+OPTION, PSDUMPFREQ = 40000000000;
+OPTION, PSDUMPEACHTURN = FALSE;
+//OPTION, PSDUMPLOCALFRAME = TRUE;
+OPTION, ASCIIDUMP=TRUE;
+OPTION, VERSION=20000;
+*/
+//########################################
+//////////////////////////////////////////////////////////////////////////////
+// input file for single particle tracking                                  //
+// the initial conditions are obtained from FIXPO GORBIT mode.              //
+//////////////////////////////////////////////////////////////////////////////
+
+TITLE, STRING= "Ring AEO";
+
+//this is kinetic energy I believe in GeV
+REAL Edes = .000000000001;
+//REAL pr0  = -0.0164; //radial momentum?
+REAL pr0  = 0.0000000; //radial momentum...I set this to +- .04 or so...interesting results.  I believe the PSI must inject with a -.0164 radial momentum or some radial momentum or mayb
+                 //or maybe that negative number was found to correct the oscillation that occurs when it is 0..where does that come from????
+//REAL r0   = 2037;    //initial radius
+REAL r0   = 0.03; 
+//REAL f1 =  50.65;//i do not understand beam frequency is not that set by field and enrgy
+//REAL f1 =  25.32;
+//REAL f1 = 101.3;
+REAL f1=12.55;
+
+
+REAL gamma=(Edes+PMASS)/PMASS;
+REAL beta=sqrt(1-(1/gamma^2)); 
+REAL gambet=gamma*beta; 
+REAL P0 = gamma*beta*PMASS;
+
+
+
+//Ring: CYCLOTRON, TYPE="RING", CYHARMON=6, PHIINIT=110.0, PRINIT=pr0, RINIT=r0 , SYMMETRY=8.0, RFFREQ=f1, FMAPFN="bfield.dat";
+
+//just changed cyharmon from 6 to 1
+//Ring: CYCLOTRON, TYPE="RING", CYHARMON=3, PHIINIT=0.0, PRINIT=pr0, RINIT=r0 , SYMMETRY=1.0, RFFREQ=f1, FMAPFN="bfield_lena.dat";
+Ring: CYCLOTRON, TYPE="CARBONCYCL", CYHARMON=1, PHIINIT=0.0, PRINIT=pr0, RINIT=r0 , SYMMETRY=4.0, RFFREQ=f1, FMAPFN="bfield_fish.dat";
+
+
+
+
+L2:   LINE = (Ring);
+
+Dist1:DISTRIBUTION, TYPE=FROMFILE,FNAME="dist2.dat"; 
+
+Fs1:FIELDSOLVER, FSTYPE=NONE, MX=64, MY=64, MT=64, PARFFTX=true, PARFFTY=true, PARFFTT=false,
+                 BCFFTX=open, BCFFTY=open, BCFFTT=open;
+
+Beam1: BEAM, PARTICLE=PROTON, pc=P0, NPART=1, BCURRENT=1.0E-6, CHARGE=1.0, BFREQ= f1;
+
+SELECT, LINE=L2;
+
+
+//TRACK, LINE= L2, BEAM= Beam1, MAXSTEPS= 720*2, STEPSPERTURN= 720;
+// RUN, METHOD = "CYCLOTRON-T", BEAM= Beam1, FIELDSOLVER= Fs1, DISTRIBUTION= Dist1;
+
+TRACK, LINE= L2, BEAM= Beam1, MAXSTEPS= 1600, STEPSPERTURN= 100;
+ RUN, METHOD = "CYCLOTRON-T", BEAM= Beam1, FIELDSOLVER= Fs1, DISTRIBUTION= Dist1;
+ENDTRACK;
+STOP;

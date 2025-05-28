@@ -1,0 +1,1269 @@
+Ippl> CommMPI: Parent process waiting for children ...
+Ippl> CommMPI: Initialization complete.
+>                ____  _____       ___ 
+>               / __ \|  __ \ /\   | | 
+>              | |  | | |__) /  \  | |
+>              | |  | |  ___/ /\ \ | |
+>              | |__| | |  / ____ \| |____
+>               \____/|_| /_/    \_\______|
+OPAL> 
+OPAL> This is OPAL (Object Oriented Parallel Accelerator Library) Version 2.0.1
+OPAL> 
+OPAL>                 (c) PSI, http://amas.web.psi.ch
+OPAL> The optimiser (former opt-Pilot) is integrated 
+OPAL> 
+OPAL> Please send cookies, goodies or other motivations (wine and beer ... ) 
+OPAL> to the OPAL developers opal@lists.psi.ch
+OPAL> 
+OPAL> Time: 19:28:22 date: 31/01/2020
+OPAL> 
+OPAL> Couldn't find startup file "/home/vagrant/init.opal".
+OPAL> Note: this is not mandatory for an OPAL simulation!
+OPAL> 
+OPAL> * Reading input stream "cyclotron2.in".
+Ippl> no solver attached
+OPAL> * Mass of simulation particle= 0.938272 GeV/c^2
+OPAL> * Charge of simulation particle= 1.60218e-19 [C]
+OPAL> * ********************************************************************************** 
+OPAL> * Selected Tracking Method == CYCLOTRON-T, NEW TRACK
+OPAL> * ********************************************************************************** 
+OPAL> * Number of neighbour bunches= 1
+OPAL> * DT                         = 1e-12
+OPAL> * MAXSTEPS                   = 1600
+OPAL> * Phase space dump frequency = 10
+OPAL> * Statistics dump frequency  = 10 w.r.t. the time step.
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * ************* D I S T R I B U T I O N ********************************************
+OPAL> * 
+OPAL> * Number of particles: 1
+OPAL> * 
+OPAL> * Distribution type: FROMFILE
+OPAL> * 
+OPAL> * Input file:        dist2.dat
+OPAL> * 
+OPAL> * Distribution is injected.
+OPAL> * 
+OPAL> * **********************************************************************************
+OPAL> 
+OPAL> * ************* B E A M ************************************************************ 
+OPAL> * BEAM        BEAM1
+OPAL> * PARTICLE    PROTON
+OPAL> * CURRENT     1e-06 A
+OPAL> * FREQUENCY   12.55 MHz
+OPAL> * CHARGE      +e * 1 
+OPAL> * REST MASS   0.938272 GeV
+OPAL> * MOMENTUM    1.36989e-06
+OPAL> * NPART       1
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * ************* F I E L D S O L V E R ********************************************** 
+OPAL> * FIELDSOLVER  FS1
+OPAL> * TYPE         NONE
+OPAL> * N-PROCESSORS 1
+OPAL> * MX           64
+OPAL> * MY           64
+OPAL> * MT           64
+OPAL> * BBOXINCR     2
+OPAL> * XDIM         parallel  
+OPAL> * YDIM         parallel  
+OPAL> * Z(T)DIM      serial  
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * -------------------------- Adding Cyclotron ---------------------------- *
+OPAL> 
+OPAL> * Bunch global starting position:
+OPAL> * RINIT = 0.03 [mm]
+OPAL> * PHIINIT = 0 [deg]
+OPAL> * ZINIT = 0 [mm]
+OPAL> 
+OPAL> * Bunch global starting momenta:
+OPAL> * Initial gamma = 1
+OPAL> * Initial beta = 1.46001e-06
+OPAL> * Reference total momentum (beta * gamma) = 0.00146001 [MCU]
+OPAL> * Reference azimuthal momentum (Pt) = 0.00146001 [MCU]
+OPAL> * Reference radial momentum (Pr) = 0 [MCU]
+OPAL> * Reference axial momentum (Pz) = 0 [MCU]
+OPAL> 
+OPAL> * 4-fold field symmetry 
+OPAL> * Field map file name = bfield_fish.dat 
+OPAL> * Type of cyclotron = CARBONCYCL 
+OPAL> * Radial aperture = 0 ... 10 [m] 
+OPAL> * Vertical aperture = -10 ... 10 [m]
+OPAL> * Number of trimcoils = 0
+OPAL> * Harmonic number h = 1 
+OPAL> * ----------------------------------------------
+OPAL> *      READ IN CARBON CYCLOTRON FIELD MAP       
+OPAL> * ----------------------------------------------
+OPAL> * Minimal radius of measured field map: 0 [mm]
+OPAL> * Stepsize in radial direction: 10 [mm]
+OPAL> * Minimal angle of measured field map: 0 [deg]
+OPAL> * Stepsize in azimuthal direction: 1 [deg]
+OPAL> * Grid points along azimuth (ntet): 91
+OPAL> * Grid points along radius (nrad): 100
+OPAL> * Adding a guard cell along azimuth
+OPAL> * Total stored grid point number ((ntet+1) * nrad) : 9200
+OPAL> * rescaling of the fields with factor: 1
+OPAL> * Field Maps read successfully!
+OPAL> 
+OPAL> * -------------------------------------
+OPAL> * The selected Beam line elements are :
+OPAL> * -> Cyclotron
+OPAL> * -------------------------------------
+OPAL> * 4th order Runge-Kutta integrator
+OPAL> * Before repartition:  min local particle number 1 max local particle number: 1
+OPAL> * After repartition:   min local particle number 1 max local particle number: 1
+OPAL> 
+OPAL> * *********************** Bunch information in local frame: ************************
+OPAL> * ************** B U N C H ********************************************************* 
+OPAL> * NP              = 1
+OPAL> * Qtot            =        0.000 [fC]         Qi    =        0.000 [fC]
+OPAL> * Ekin            =        0.001 [eV]         dEkin =        -nan [MeV]
+OPAL> * rmax            = (      0.00000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * rmin            = (      0.00000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * rms beam size   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * rms momenta     = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * mean position   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * mean momenta    = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * rms emittance   = (         -nan ,         -nan ,         -nan ) (not normalized)
+OPAL> * rms correlation = (         -nan ,         -nan ,         -nan )
+OPAL> * hr              = (      0.00000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * dh              =   1.00000e-10 [%]
+OPAL> * t               =        0.000 [fs]         dT    =      796.813 [ps]
+OPAL> * spos            =        0.000 [um]
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> 
+OPAL> * Integration step 0 (no phase space dump for <= 2 particles)
+OPAL> * T = 0 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.03 mm, Theta = 0 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 0 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * *********************** Bunch information in global frame: ***********************
+OPAL> * ************** B U N C H ********************************************************* 
+OPAL> * NP              = 1
+OPAL> * Qtot            =        0.000 [fC]         Qi    =        0.000 [fC]
+OPAL> * Ekin            =        0.001 [eV]         dEkin =        -nan [MeV]
+OPAL> * rmax            = (      0.03000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * rmin            = (      0.03000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * rms beam size   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * rms momenta     = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * mean position   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * mean momenta    = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * rms emittance   = (         -nan ,         -nan ,         -nan ) (not normalized)
+OPAL> * rms correlation = (         -nan ,         -nan ,         -nan )
+OPAL> * hr              = (      0.00000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * dh              =   1.00000e-10 [%]
+OPAL> * t               =        0.000 [fs]         dT    =      796.813 [ps]
+OPAL> * spos            =        0.000 [um]
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * Beginning of this run is at t = 0 [ns]
+OPAL> * The time step is set to dt = 0.79681 [ns]
+OPAL> * Single particle trajectory dump frequency is set to 1
+OPAL> * The frequency to solve space charge fields is set to 1
+OPAL> * The repartition frequency is set to 10
+OPAL> 
+OPAL> * ------------------------------ SINGLE PARTICLE MODE --------------------------------- *
+OPAL> * Instruction: When the total particle number is equal to 1, single particle mode is    *
+OPAL> * triggered automatically. The initial distribution file must be specified which should *
+OPAL> * contain only one line for the single particle                                         *
+OPAL> * ---------NOTE: SINGLE PARTICLE MODE ONLY WORKS SERIALLY ON A SINGLE NODE ------------ *
+OPAL> 
+OPAL> * --------------------------------- Start tracking ------------------------------------ *
+OPAL> 
+OPAL> * Integration step 10 (no phase space dump for <= 2 particles)
+OPAL> * T = 7.9681 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.030136 mm, Theta = 6.6442 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 2.1866 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 20 (no phase space dump for <= 2 particles)
+OPAL> * T = 15.936 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.03054 mm, Theta = 13.19 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 4.3731 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 30 (no phase space dump for <= 2 particles)
+OPAL> * T = 23.904 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.0312 mm, Theta = 19.549 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 6.5597 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 40 (no phase space dump for <= 2 particles)
+OPAL> * T = 31.873 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.032101 mm, Theta = 25.652 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 8.7462 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 50 (no phase space dump for <= 2 particles)
+OPAL> * T = 39.841 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.033221 mm, Theta = 31.449 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 10.933 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 60 (no phase space dump for <= 2 particles)
+OPAL> * T = 47.809 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.034538 mm, Theta = 36.913 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 13.119 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 70 (no phase space dump for <= 2 particles)
+OPAL> * T = 55.777 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.036028 mm, Theta = 42.036 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 15.306 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 80 (no phase space dump for <= 2 particles)
+OPAL> * T = 63.745 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.037668 mm, Theta = 46.824 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 17.492 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 90 (no phase space dump for <= 2 particles)
+OPAL> * T = 71.713 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.039438 mm, Theta = 51.292 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 19.679 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 1
+OPAL> 
+OPAL> * Integration step 100 (no phase space dump for <= 2 particles)
+OPAL> * T = 79.681 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.041318 mm, Theta = 55.462 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 21.866 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 110 (no phase space dump for <= 2 particles)
+OPAL> * T = 87.649 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.043292 mm, Theta = 59.358 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 24.052 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 120 (no phase space dump for <= 2 particles)
+OPAL> * T = 95.618 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.045345 mm, Theta = 63.004 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 26.239 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 130 (no phase space dump for <= 2 particles)
+OPAL> * T = 103.59 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.047463 mm, Theta = 66.426 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 28.425 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 140 (no phase space dump for <= 2 particles)
+OPAL> * T = 111.55 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.049636 mm, Theta = 69.647 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 30.612 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 150 (no phase space dump for <= 2 particles)
+OPAL> * T = 119.52 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.051853 mm, Theta = 72.687 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 32.798 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 160 (no phase space dump for <= 2 particles)
+OPAL> * T = 127.49 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.054107 mm, Theta = 75.567 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 34.985 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 170 (no phase space dump for <= 2 particles)
+OPAL> * T = 135.46 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.056389 mm, Theta = 78.302 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 37.172 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 180 (no phase space dump for <= 2 particles)
+OPAL> * T = 143.43 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.058693 mm, Theta = 80.91 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 39.358 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 190 (no phase space dump for <= 2 particles)
+OPAL> * T = 151.39 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.061014 mm, Theta = 83.402 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 41.545 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 2
+OPAL> 
+OPAL> * Integration step 200 (no phase space dump for <= 2 particles)
+OPAL> * T = 159.36 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.063346 mm, Theta = 85.792 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 43.731 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 210 (no phase space dump for <= 2 particles)
+OPAL> * T = 167.33 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.065685 mm, Theta = 88.09 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 45.918 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 220 (no phase space dump for <= 2 particles)
+OPAL> * T = 175.3 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.068027 mm, Theta = 90.305 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 48.104 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 230 (no phase space dump for <= 2 particles)
+OPAL> * T = 183.27 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.070369 mm, Theta = 92.445 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 50.291 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 240 (no phase space dump for <= 2 particles)
+OPAL> * T = 191.24 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.072708 mm, Theta = 94.517 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 52.477 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 250 (no phase space dump for <= 2 particles)
+OPAL> * T = 199.2 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.075039 mm, Theta = 96.529 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 54.664 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 260 (no phase space dump for <= 2 particles)
+OPAL> * T = 207.17 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.077362 mm, Theta = 98.485 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 56.851 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 270 (no phase space dump for <= 2 particles)
+OPAL> * T = 215.14 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.079673 mm, Theta = 100.39 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 59.037 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 280 (no phase space dump for <= 2 particles)
+OPAL> * T = 223.11 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.08197 mm, Theta = 102.25 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 61.224 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 290 (no phase space dump for <= 2 particles)
+OPAL> * T = 231.08 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.084251 mm, Theta = 104.07 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 63.41 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 3
+OPAL> 
+OPAL> * Integration step 300 (no phase space dump for <= 2 particles)
+OPAL> * T = 239.04 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.086514 mm, Theta = 105.85 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 65.597 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 310 (no phase space dump for <= 2 particles)
+OPAL> * T = 247.01 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.088758 mm, Theta = 107.6 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 67.783 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 320 (no phase space dump for <= 2 particles)
+OPAL> * T = 254.98 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.09098 mm, Theta = 109.31 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 69.97 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 330 (no phase space dump for <= 2 particles)
+OPAL> * T = 262.95 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.093179 mm, Theta = 111 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 72.157 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 340 (no phase space dump for <= 2 particles)
+OPAL> * T = 270.92 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.095354 mm, Theta = 112.65 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 74.343 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 350 (no phase space dump for <= 2 particles)
+OPAL> * T = 278.88 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.097503 mm, Theta = 114.29 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 76.53 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 360 (no phase space dump for <= 2 particles)
+OPAL> * T = 286.85 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.099624 mm, Theta = 115.89 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 78.716 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 370 (no phase space dump for <= 2 particles)
+OPAL> * T = 294.82 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10172 mm, Theta = 117.48 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 80.903 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 380 (no phase space dump for <= 2 particles)
+OPAL> * T = 302.79 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10378 mm, Theta = 119.05 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 83.089 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 390 (no phase space dump for <= 2 particles)
+OPAL> * T = 310.76 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10581 mm, Theta = 120.6 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 85.276 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 4
+OPAL> 
+OPAL> * Integration step 400 (no phase space dump for <= 2 particles)
+OPAL> * T = 318.73 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10781 mm, Theta = 122.13 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 87.462 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 410 (no phase space dump for <= 2 particles)
+OPAL> * T = 326.69 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10978 mm, Theta = 123.65 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 89.649 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 420 (no phase space dump for <= 2 particles)
+OPAL> * T = 334.66 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11171 mm, Theta = 125.15 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 91.836 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 430 (no phase space dump for <= 2 particles)
+OPAL> * T = 342.63 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11361 mm, Theta = 126.64 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 94.022 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 440 (no phase space dump for <= 2 particles)
+OPAL> * T = 350.6 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11547 mm, Theta = 128.11 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 96.209 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 450 (no phase space dump for <= 2 particles)
+OPAL> * T = 358.57 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1173 mm, Theta = 129.58 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 98.395 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 460 (no phase space dump for <= 2 particles)
+OPAL> * T = 366.53 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11908 mm, Theta = 131.03 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 100.58 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 470 (no phase space dump for <= 2 particles)
+OPAL> * T = 374.5 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12083 mm, Theta = 132.47 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 102.77 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 480 (no phase space dump for <= 2 particles)
+OPAL> * T = 382.47 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12254 mm, Theta = 133.9 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 104.95 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 490 (no phase space dump for <= 2 particles)
+OPAL> * T = 390.44 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12421 mm, Theta = 135.32 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 107.14 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 5
+OPAL> 
+OPAL> * Integration step 500 (no phase space dump for <= 2 particles)
+OPAL> * T = 398.41 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12583 mm, Theta = 136.74 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 109.33 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 510 (no phase space dump for <= 2 particles)
+OPAL> * T = 406.37 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12742 mm, Theta = 138.14 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 111.51 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 520 (no phase space dump for <= 2 particles)
+OPAL> * T = 414.34 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12896 mm, Theta = 139.54 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 113.7 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 530 (no phase space dump for <= 2 particles)
+OPAL> * T = 422.31 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13046 mm, Theta = 140.93 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 115.89 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 540 (no phase space dump for <= 2 particles)
+OPAL> * T = 430.28 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13191 mm, Theta = 142.32 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 118.07 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 550 (no phase space dump for <= 2 particles)
+OPAL> * T = 438.25 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13332 mm, Theta = 143.7 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 120.26 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 560 (no phase space dump for <= 2 particles)
+OPAL> * T = 446.22 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13469 mm, Theta = 145.07 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 122.45 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 570 (no phase space dump for <= 2 particles)
+OPAL> * T = 454.18 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13601 mm, Theta = 146.44 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 124.63 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 580 (no phase space dump for <= 2 particles)
+OPAL> * T = 462.15 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13728 mm, Theta = 147.8 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 126.82 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 590 (no phase space dump for <= 2 particles)
+OPAL> * T = 470.12 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1385 mm, Theta = 149.15 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 129.01 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 6
+OPAL> 
+OPAL> * Integration step 600 (no phase space dump for <= 2 particles)
+OPAL> * T = 478.09 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13968 mm, Theta = 150.51 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 131.19 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 610 (no phase space dump for <= 2 particles)
+OPAL> * T = 486.06 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14081 mm, Theta = 151.85 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 133.38 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 620 (no phase space dump for <= 2 particles)
+OPAL> * T = 494.02 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14189 mm, Theta = 153.2 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 135.57 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 630 (no phase space dump for <= 2 particles)
+OPAL> * T = 501.99 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14292 mm, Theta = 154.54 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 137.75 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 640 (no phase space dump for <= 2 particles)
+OPAL> * T = 509.96 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1439 mm, Theta = 155.88 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 139.94 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 650 (no phase space dump for <= 2 particles)
+OPAL> * T = 517.93 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14484 mm, Theta = 157.21 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 142.13 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 660 (no phase space dump for <= 2 particles)
+OPAL> * T = 525.9 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14572 mm, Theta = 158.54 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 144.31 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 670 (no phase space dump for <= 2 particles)
+OPAL> * T = 533.86 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14655 mm, Theta = 159.87 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 146.5 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 680 (no phase space dump for <= 2 particles)
+OPAL> * T = 541.83 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14733 mm, Theta = 161.19 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 148.69 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 690 (no phase space dump for <= 2 particles)
+OPAL> * T = 549.8 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14806 mm, Theta = 162.52 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 150.87 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 7
+OPAL> 
+OPAL> * Integration step 700 (no phase space dump for <= 2 particles)
+OPAL> * T = 557.77 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14874 mm, Theta = 163.84 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 153.06 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 710 (no phase space dump for <= 2 particles)
+OPAL> * T = 565.74 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14937 mm, Theta = 165.16 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 155.25 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 720 (no phase space dump for <= 2 particles)
+OPAL> * T = 573.71 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14994 mm, Theta = 166.47 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 157.43 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 730 (no phase space dump for <= 2 particles)
+OPAL> * T = 581.67 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15046 mm, Theta = 167.79 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 159.62 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 740 (no phase space dump for <= 2 particles)
+OPAL> * T = 589.64 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15093 mm, Theta = 169.1 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 161.81 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 750 (no phase space dump for <= 2 particles)
+OPAL> * T = 597.61 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15135 mm, Theta = 170.41 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 163.99 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 760 (no phase space dump for <= 2 particles)
+OPAL> * T = 605.58 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15171 mm, Theta = 171.73 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 166.18 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 770 (no phase space dump for <= 2 particles)
+OPAL> * T = 613.55 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15202 mm, Theta = 173.04 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 168.37 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 780 (no phase space dump for <= 2 particles)
+OPAL> * T = 621.51 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15228 mm, Theta = 174.35 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 170.55 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 790 (no phase space dump for <= 2 particles)
+OPAL> * T = 629.48 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15248 mm, Theta = 175.66 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 172.74 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 8
+OPAL> 
+OPAL> * Integration step 800 (no phase space dump for <= 2 particles)
+OPAL> * T = 637.45 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15263 mm, Theta = 176.96 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 174.92 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 810 (no phase space dump for <= 2 particles)
+OPAL> * T = 645.42 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15273 mm, Theta = 178.27 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 177.11 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 820 (no phase space dump for <= 2 particles)
+OPAL> * T = 653.39 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15278 mm, Theta = 179.58 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 179.3 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 830 (no phase space dump for <= 2 particles)
+OPAL> * T = 661.35 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15277 mm, Theta = -179.11 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 181.48 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 840 (no phase space dump for <= 2 particles)
+OPAL> * T = 669.32 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1527 mm, Theta = -177.8 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 183.67 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 850 (no phase space dump for <= 2 particles)
+OPAL> * T = 677.29 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15259 mm, Theta = -176.5 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 185.86 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 860 (no phase space dump for <= 2 particles)
+OPAL> * T = 685.26 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15242 mm, Theta = -175.19 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 188.04 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 870 (no phase space dump for <= 2 particles)
+OPAL> * T = 693.23 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15219 mm, Theta = -173.88 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 190.23 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 880 (no phase space dump for <= 2 particles)
+OPAL> * T = 701.2 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15192 mm, Theta = -172.57 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 192.42 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 890 (no phase space dump for <= 2 particles)
+OPAL> * T = 709.16 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15159 mm, Theta = -171.26 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 194.6 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 9
+OPAL> 
+OPAL> * Integration step 900 (no phase space dump for <= 2 particles)
+OPAL> * T = 717.13 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1512 mm, Theta = -169.94 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 196.79 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 910 (no phase space dump for <= 2 particles)
+OPAL> * T = 725.1 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15077 mm, Theta = -168.63 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 198.98 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 920 (no phase space dump for <= 2 particles)
+OPAL> * T = 733.07 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.15028 mm, Theta = -167.32 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 201.16 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 930 (no phase space dump for <= 2 particles)
+OPAL> * T = 741.04 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14974 mm, Theta = -166 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 203.35 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 940 (no phase space dump for <= 2 particles)
+OPAL> * T = 749 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14915 mm, Theta = -164.68 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 205.54 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 950 (no phase space dump for <= 2 particles)
+OPAL> * T = 756.97 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1485 mm, Theta = -163.36 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 207.72 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 960 (no phase space dump for <= 2 particles)
+OPAL> * T = 764.94 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14781 mm, Theta = -162.04 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 209.91 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 970 (no phase space dump for <= 2 particles)
+OPAL> * T = 772.91 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14706 mm, Theta = -160.72 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 212.1 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 980 (no phase space dump for <= 2 particles)
+OPAL> * T = 780.88 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14626 mm, Theta = -159.39 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 214.28 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 990 (no phase space dump for <= 2 particles)
+OPAL> * T = 788.84 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14541 mm, Theta = -158.06 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 216.47 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 10
+OPAL> 
+OPAL> * Integration step 1000 (no phase space dump for <= 2 particles)
+OPAL> * T = 796.81 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14451 mm, Theta = -156.73 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 218.66 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1010 (no phase space dump for <= 2 particles)
+OPAL> * T = 804.78 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14356 mm, Theta = -155.4 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 220.84 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1020 (no phase space dump for <= 2 particles)
+OPAL> * T = 812.75 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14256 mm, Theta = -154.06 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 223.03 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1030 (no phase space dump for <= 2 particles)
+OPAL> * T = 820.72 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14151 mm, Theta = -152.72 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 225.22 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1040 (no phase space dump for <= 2 particles)
+OPAL> * T = 828.69 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.14041 mm, Theta = -151.37 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 227.4 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1050 (no phase space dump for <= 2 particles)
+OPAL> * T = 836.65 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13926 mm, Theta = -150.02 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 229.59 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1060 (no phase space dump for <= 2 particles)
+OPAL> * T = 844.62 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13807 mm, Theta = -148.67 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 231.78 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1070 (no phase space dump for <= 2 particles)
+OPAL> * T = 852.59 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13683 mm, Theta = -147.31 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 233.96 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1080 (no phase space dump for <= 2 particles)
+OPAL> * T = 860.56 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13554 mm, Theta = -145.95 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 236.15 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1090 (no phase space dump for <= 2 particles)
+OPAL> * T = 868.53 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1342 mm, Theta = -144.58 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 238.34 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 11
+OPAL> 
+OPAL> * Integration step 1100 (no phase space dump for <= 2 particles)
+OPAL> * T = 876.49 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.13282 mm, Theta = -143.2 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 240.52 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1110 (no phase space dump for <= 2 particles)
+OPAL> * T = 884.46 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1314 mm, Theta = -141.82 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 242.71 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1120 (no phase space dump for <= 2 particles)
+OPAL> * T = 892.43 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12993 mm, Theta = -140.44 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 244.89 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1130 (no phase space dump for <= 2 particles)
+OPAL> * T = 900.4 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12841 mm, Theta = -139.04 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 247.08 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1140 (no phase space dump for <= 2 particles)
+OPAL> * T = 908.37 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12686 mm, Theta = -137.64 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 249.27 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1150 (no phase space dump for <= 2 particles)
+OPAL> * T = 916.33 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12526 mm, Theta = -136.23 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 251.45 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1160 (no phase space dump for <= 2 particles)
+OPAL> * T = 924.3 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12362 mm, Theta = -134.82 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 253.64 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1170 (no phase space dump for <= 2 particles)
+OPAL> * T = 932.27 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12193 mm, Theta = -133.39 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 255.83 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1180 (no phase space dump for <= 2 particles)
+OPAL> * T = 940.24 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.12021 mm, Theta = -131.96 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 258.01 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1190 (no phase space dump for <= 2 particles)
+OPAL> * T = 948.21 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11845 mm, Theta = -130.51 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 260.2 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 12
+OPAL> 
+OPAL> * Integration step 1200 (no phase space dump for <= 2 particles)
+OPAL> * T = 956.18 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11665 mm, Theta = -129.05 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 262.39 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1210 (no phase space dump for <= 2 particles)
+OPAL> * T = 964.14 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11481 mm, Theta = -127.59 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 264.57 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1220 (no phase space dump for <= 2 particles)
+OPAL> * T = 972.11 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11294 mm, Theta = -126.11 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 266.76 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1230 (no phase space dump for <= 2 particles)
+OPAL> * T = 980.08 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.11103 mm, Theta = -124.61 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 268.95 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1240 (no phase space dump for <= 2 particles)
+OPAL> * T = 988.05 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10908 mm, Theta = -123.11 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -88.866 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1250 (no phase space dump for <= 2 particles)
+OPAL> * T = 996.02 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.1071 mm, Theta = -121.59 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -86.68 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1260 (no phase space dump for <= 2 particles)
+OPAL> * T = 1004 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10509 mm, Theta = -120.05 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -84.493 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1270 (no phase space dump for <= 2 particles)
+OPAL> * T = 1012 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10305 mm, Theta = -118.49 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -82.307 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1280 (no phase space dump for <= 2 particles)
+OPAL> * T = 1019.9 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.10097 mm, Theta = -116.92 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -80.12 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1290 (no phase space dump for <= 2 particles)
+OPAL> * T = 1027.9 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.098868 mm, Theta = -115.32 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -77.934 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 13
+OPAL> 
+OPAL> * Integration step 1300 (no phase space dump for <= 2 particles)
+OPAL> * T = 1035.9 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.096737 mm, Theta = -113.7 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -75.747 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1310 (no phase space dump for <= 2 particles)
+OPAL> * T = 1043.8 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.094579 mm, Theta = -112.06 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -73.561 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1320 (no phase space dump for <= 2 particles)
+OPAL> * T = 1051.8 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.092395 mm, Theta = -110.4 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -71.374 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1330 (no phase space dump for <= 2 particles)
+OPAL> * T = 1059.8 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.090187 mm, Theta = -108.7 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -69.187 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1340 (no phase space dump for <= 2 particles)
+OPAL> * T = 1067.7 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.087957 mm, Theta = -106.98 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -67.001 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1350 (no phase space dump for <= 2 particles)
+OPAL> * T = 1075.7 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.085707 mm, Theta = -105.22 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -64.814 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1360 (no phase space dump for <= 2 particles)
+OPAL> * T = 1083.7 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.083437 mm, Theta = -103.42 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -62.628 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1370 (no phase space dump for <= 2 particles)
+OPAL> * T = 1091.6 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.08115 mm, Theta = -101.59 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -60.441 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1380 (no phase space dump for <= 2 particles)
+OPAL> * T = 1099.6 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.078847 mm, Theta = -99.715 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -58.255 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1390 (no phase space dump for <= 2 particles)
+OPAL> * T = 1107.6 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.076532 mm, Theta = -97.791 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -56.068 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 14
+OPAL> 
+OPAL> * Integration step 1400 (no phase space dump for <= 2 particles)
+OPAL> * T = 1115.5 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.074206 mm, Theta = -95.816 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -53.881 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1410 (no phase space dump for <= 2 particles)
+OPAL> * T = 1123.5 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.071871 mm, Theta = -93.783 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -51.695 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1420 (no phase space dump for <= 2 particles)
+OPAL> * T = 1131.5 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.069532 mm, Theta = -91.687 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -49.508 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1430 (no phase space dump for <= 2 particles)
+OPAL> * T = 1139.4 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.067189 mm, Theta = -89.521 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -47.322 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1440 (no phase space dump for <= 2 particles)
+OPAL> * T = 1147.4 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.064847 mm, Theta = -87.278 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -45.135 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1450 (no phase space dump for <= 2 particles)
+OPAL> * T = 1155.4 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.06251 mm, Theta = -84.948 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -42.949 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1460 (no phase space dump for <= 2 particles)
+OPAL> * T = 1163.3 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.060181 mm, Theta = -82.523 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -40.762 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1470 (no phase space dump for <= 2 particles)
+OPAL> * T = 1171.3 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.057866 mm, Theta = -79.991 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -38.576 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1480 (no phase space dump for <= 2 particles)
+OPAL> * T = 1179.3 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.055569 mm, Theta = -77.339 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -36.389 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1490 (no phase space dump for <= 2 particles)
+OPAL> * T = 1187.3 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.053297 mm, Theta = -74.554 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -34.202 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 15
+OPAL> 
+OPAL> * Integration step 1500 (no phase space dump for <= 2 particles)
+OPAL> * T = 1195.2 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.051055 mm, Theta = -71.619 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -32.016 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1510 (no phase space dump for <= 2 particles)
+OPAL> * T = 1203.2 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.048853 mm, Theta = -68.516 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -29.829 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1520 (no phase space dump for <= 2 particles)
+OPAL> * T = 1211.2 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.046698 mm, Theta = -65.226 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -27.643 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1530 (no phase space dump for <= 2 particles)
+OPAL> * T = 1219.1 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.044602 mm, Theta = -61.726 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -25.456 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1540 (no phase space dump for <= 2 particles)
+OPAL> * T = 1227.1 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.042576 mm, Theta = -57.993 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -23.27 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1550 (no phase space dump for <= 2 particles)
+OPAL> * T = 1235.1 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.040634 mm, Theta = -54.003 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -21.083 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1560 (no phase space dump for <= 2 particles)
+OPAL> * T = 1243 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.038791 mm, Theta = -49.729 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -18.897 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1570 (no phase space dump for <= 2 particles)
+OPAL> * T = 1251 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.037065 mm, Theta = -45.149 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -16.71 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1580 (no phase space dump for <= 2 particles)
+OPAL> * T = 1259 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.035476 mm, Theta = -40.242 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -14.523 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * Integration step 1590 (no phase space dump for <= 2 particles)
+OPAL> * T = 1266.9 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.034046 mm, Theta = -34.997 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -12.337 Deg, Local Elevation = 0 Deg
+OPAL> * SPT: Finished turn 16
+OPAL> 
+OPAL> * Integration step 1600 (no phase space dump for <= 2 particles)
+OPAL> * T = 1274.9 ns, Live Particles: 1
+OPAL> * E = 1e-09 MeV, beta * gamma = 1.46e-06
+OPAL> * Bunch position: R =  0.032797 mm, Theta = -29.411 Deg, Z = 0 mm
+OPAL> * Local Azimuth = -10.15 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * ---------------------------- DONE TRACKING PARTICLES -------------------------------- * 
+OPAL> * Final energy of reference particle = 1e-09 [MeV]
+OPAL> * Total phase space dump number(includes the initial distribution) = 0
+OPAL> * One can restart simulation from the last dump step (--restart -1)
+OPAL> *
+OPAL> * Finished during turn 17 (16 turns completed)
+OPAL> * Cave: Turn number is not correct for restart mode
+OPAL> 
+OPAL> * *********************** Bunch information in global frame: ***********************
+OPAL> * ************** B U N C H ********************************************************* 
+OPAL> * NP              = 1
+OPAL> * Qtot            =        0.000 [fC]         Qi    =        0.000 [fC]
+OPAL> * Ekin            =        0.001 [eV]         dEkin =        -nan [MeV]
+OPAL> * rmax            = (      0.02857 ,     -0.01611 ,      0.00000 ) [um]
+OPAL> * rmin            = (      0.02857 ,     -0.01611 ,      0.00000 ) [um]
+OPAL> * rms beam size   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * rms momenta     = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * mean position   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * mean momenta    = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * rms emittance   = (         -nan ,         -nan ,         -nan ) (not normalized)
+OPAL> * rms correlation = (         -nan ,         -nan ,         -nan )
+OPAL> * hr              = (      0.00000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * dh              =   1.00000e-10 [%]
+OPAL> * t               =        1.275 [ms]         dT    =      796.813 [ps]
+OPAL> * spos            =      558.024 [um]
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * ----------------------------------------------- *
+OPAL> * Finalizing i.e. write data and close files :
+OPAL> * Finalize cyclotron
+OPAL> * ----------------------------------------------- *
+OPAL> * End of input stream "cyclotron2.in".
+Timings> -----------------------------------------------------------------
+Timings>      Timing results for 1 nodes:
+Timings> -----------------------------------------------------------------
+Timings> mainTimer........... Wall tot =   0.274849, CPU tot =       0.21
+Timings> 
+Timings> Binaryrepart........ Wall max =   0.001044, CPU max =       0.01
+Timings>                      Wall avg =   0.001044, CPU avg =       0.01
+Timings>                      Wall min =   0.001044, CPU min =       0.01
+Timings> 
+Timings> Boundingbox......... Wall max =    7.8e-05, CPU max =       0.01
+Timings>                      Wall avg =    7.8e-05, CPU avg =       0.01
+Timings>                      Wall min =    7.8e-05, CPU min =       0.01
+Timings> 
+Timings> Boundingbox-bounds.. Wall max =    1.7e-05, CPU max =          0
+Timings>                      Wall avg =    1.7e-05, CPU avg =          0
+Timings>                      Wall min =    1.7e-05, CPU min =          0
+Timings> 
+Timings> Boundingbox-update.. Wall max =      7e-06, CPU max =          0
+Timings>                      Wall avg =      7e-06, CPU avg =          0
+Timings>                      Wall min =      7e-06, CPU min =          0
+Timings> 
+Timings> Compute Statistics.. Wall max =   0.001305, CPU max =       0.01
+Timings>                      Wall avg =   0.001305, CPU avg =       0.01
+Timings>                      Wall min =   0.001305, CPU min =       0.01
+Timings> 
+Timings> Create Distr........ Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Dump................ Wall max =   0.030725, CPU max =       0.03
+Timings>                      Wall avg =   0.030725, CPU avg =       0.03
+Timings>                      Wall min =   0.030725, CPU min =       0.03
+Timings> 
+Timings> Fast inside test.... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Frametransform...... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Histogram........... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Initialize geometry. Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Inside test......... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Integration......... Wall max =   0.022755, CPU max =       0.02
+Timings>                      Wall avg =   0.022755, CPU avg =       0.02
+Timings>                      Wall min =   0.022755, CPU min =       0.02
+Timings> 
+Timings> Load Distr.......... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Particle Inside..... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Ray tracing......... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Secondary emission.. Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> SelfField total..... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Write H5-File....... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Write Stat.......... Wall max =   0.018415, CPU max =       0.02
+Timings>                      Wall avg =   0.018415, CPU avg =       0.02
+Timings>                      Wall min =   0.018415, CPU min =       0.02
+Timings> 
+Timings> -----------------------------------------------------------------
