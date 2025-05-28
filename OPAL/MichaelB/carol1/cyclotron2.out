@@ -1,0 +1,555 @@
+Ippl> CommMPI: Parent process waiting for children ...
+Ippl> CommMPI: Initialization complete.
+>                ____  _____       ___ 
+>               / __ \|  __ \ /\   | | 
+>              | |  | | |__) /  \  | |
+>              | |  | |  ___/ /\ \ | |
+>              | |__| | |  / ____ \| |____
+>               \____/|_| /_/    \_\______|
+OPAL> 
+OPAL> This is OPAL (Object Oriented Parallel Accelerator Library) Version 2.0.1
+OPAL> 
+OPAL>                 (c) PSI, http://amas.web.psi.ch
+OPAL> The optimiser (former opt-Pilot) is integrated 
+OPAL> 
+OPAL> Please send cookies, goodies or other motivations (wine and beer ... ) 
+OPAL> to the OPAL developers opal@lists.psi.ch
+OPAL> 
+OPAL> Time: 16:50:30 date: 31/01/2020
+OPAL> 
+OPAL> Couldn't find startup file "/home/vagrant/init.opal".
+OPAL> Note: this is not mandatory for an OPAL simulation!
+OPAL> 
+OPAL> * Reading input stream "CJ1_acc_DESIGN_102019_alpha_plot.in".
+Ippl> no solver attached
+OPAL> * Mass of simulation particle= 3.72738 GeV/c^2
+OPAL> * Charge of simulation particle= 3.20435e-19 [C]
+OPAL> * ********************************************************************************** 
+OPAL> * Selected Tracking Method == CYCLOTRON-T, NEW TRACK
+OPAL> * ********************************************************************************** 
+OPAL> * Number of neighbour bunches= 1
+OPAL> * DT                         = 1e-12
+OPAL> * MAXSTEPS                   = 158400
+OPAL> * Phase space dump frequency = -2147483648
+OPAL> * Statistics dump frequency  = 10 w.r.t. the time step.
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * ************* D I S T R I B U T I O N ********************************************
+OPAL> * 
+OPAL> * Number of particles: 1
+OPAL> * 
+OPAL> * Distribution type: FROMFILE
+OPAL> * 
+OPAL> * Input file:        PartDatabase.dat
+OPAL> * 
+OPAL> * Distribution is injected.
+OPAL> * 
+OPAL> * **********************************************************************************
+OPAL> 
+OPAL> * ************* B E A M ************************************************************ 
+OPAL> * BEAM        BEAM1
+OPAL> * PARTICLE    ALPHA
+OPAL> * CURRENT     0.01 A
+OPAL> * FREQUENCY   44.5042 MHz
+OPAL> * CHARGE      +e * 2 
+OPAL> * REST MASS   3.72738 GeV
+OPAL> * MOMENTUM    0.122121
+OPAL> * NPART       1
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * ************* F I E L D S O L V E R ********************************************** 
+OPAL> * FIELDSOLVER  FS1
+OPAL> * TYPE         NONE
+OPAL> * N-PROCESSORS 1
+OPAL> * MX           32
+OPAL> * MY           32
+OPAL> * MT           32
+OPAL> * BBOXINCR     2
+OPAL> * XDIM         parallel  
+OPAL> * YDIM         parallel  
+OPAL> * Z(T)DIM      serial  
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * -------------------------- Adding Cyclotron ---------------------------- *
+OPAL> 
+OPAL> * Bunch global starting position:
+OPAL> * RINIT = 294 [mm]
+OPAL> * PHIINIT = 45 [deg]
+OPAL> * ZINIT = 0 [mm]
+OPAL> 
+OPAL> * Bunch global starting momenta:
+OPAL> * Initial gamma = 1.00054
+OPAL> * Initial beta = 0.0327457
+OPAL> * Reference total momentum (beta * gamma) = 32.7632 [MCU]
+OPAL> * Reference azimuthal momentum (Pt) = 32.7632 [MCU]
+OPAL> * Reference radial momentum (Pr) = 0 [MCU]
+OPAL> * Reference axial momentum (Pz) = 0 [MCU]
+OPAL> 
+OPAL> * 4-fold field symmetry 
+OPAL> * Field map file name = OPALField_alpha_2-60MeV_4cm_gap_10292019.dat 
+OPAL> * Type of cyclotron = CARBONCYCL 
+OPAL> * Radial aperture = 0 ... 10 [m] 
+OPAL> * Vertical aperture = -2 ... 2 [m]
+OPAL> * Number of trimcoils = 0
+OPAL> * Harmonic number h = 4 
+OPAL> * ----------------------------------------------
+OPAL> *      READ IN CARBON CYCLOTRON FIELD MAP       
+OPAL> * ----------------------------------------------
+OPAL> * Minimal radius of measured field map: 100 [mm]
+OPAL> * Stepsize in radial direction: 10 [mm]
+OPAL> * Minimal angle of measured field map: 0 [deg]
+OPAL> * Stepsize in azimuthal direction: 1 [deg]
+OPAL> * Grid points along azimuth (ntet): 91
+OPAL> * Grid points along radius (nrad): 156
+OPAL> * Adding a guard cell along azimuth
+OPAL> * Total stored grid point number ((ntet+1) * nrad) : 14352
+OPAL> * rescaling of the fields with factor: 1
+OPAL> * Field Maps read successfully!
+OPAL> 
+OPAL> * --------- RFCavity ------------------------------
+OPAL> * Minimal radius of cavity= 10 [mm]
+OPAL> * Maximal radius of cavity= 2000 [mm]
+OPAL> * RF frequency (2*pi*f)= 2.79628e+08 [rad/s]
+OPAL> * RF Field map file name= Cav3.dat
+OPAL> * Cavity azimuth position= 45 [deg] 
+OPAL> * Cavity gap width= 2 [mm] 
+OPAL> * Cavity Shift distance= 0 [mm] 
+OPAL> * Initial RF phase (t=0)= 0 [deg] 
+OPAL> * Read cavity voltage profile data
+OPAL> * Cavity voltage data read successfully!
+OPAL> * --------- RFCavity ------------------------------
+OPAL> * Minimal radius of cavity= 10 [mm]
+OPAL> * Maximal radius of cavity= 2000 [mm]
+OPAL> * RF frequency (2*pi*f)= 2.79628e+08 [rad/s]
+OPAL> * RF Field map file name= Cav3.dat
+OPAL> * Cavity azimuth position= -135 [deg] 
+OPAL> * Cavity gap width= 2 [mm] 
+OPAL> * Cavity Shift distance= 0 [mm] 
+OPAL> * Initial RF phase (t=0)= 360 [deg] 
+OPAL> * Read cavity voltage profile data
+OPAL> * Cavity voltage data read successfully!
+OPAL> * -----------  Probe -------------------------------
+OPAL> XStart= 0 [mm]
+OPAL> XEnd= -3005 [mm]
+OPAL> YStart= 0 [mm]
+OPAL> YEnd= 3005 [mm]
+OPAL> Width= 0 [mm]
+OPAL> * Initialize probe
+OPAL> * -----------  Probe -------------------------------
+OPAL> XStart= 0 [mm]
+OPAL> XEnd= 3005 [mm]
+OPAL> YStart= 0 [mm]
+OPAL> YEnd= 0 [mm]
+OPAL> Width= 0 [mm]
+OPAL> * Initialize probe
+OPAL> * -------------------------------------
+OPAL> * The selected Beam line elements are :
+OPAL> * -> Cyclotron
+OPAL> * -> RFCavity
+OPAL> * -> RFCavity
+OPAL> * -> Probe
+OPAL> * -> Probe
+OPAL> * -------------------------------------
+OPAL> * 4th order Runge-Kutta integrator
+OPAL> * Before repartition:  min local particle number 1 max local particle number: 1
+OPAL> * After repartition:   min local particle number 1 max local particle number: 1
+OPAL> 
+OPAL> * *********************** Bunch information in local frame: ************************
+OPAL> * ************** B U N C H ********************************************************* 
+OPAL> * NP              = 1
+OPAL> * Qtot            =        0.000 [fC]         Qi    =        0.000 [fC]
+OPAL> * Ekin            =       2.000 [MeV]         dEkin =        -nan [MeV]
+OPAL> * rmax            = (      0.00000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * rmin            = (      0.00000 ,      0.00000 ,      0.00000 ) [um]
+OPAL> * rms beam size   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * rms momenta     = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * mean position   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * mean momenta    = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * rms emittance   = (         -nan ,         -nan ,         -nan ) (not normalized)
+OPAL> * rms correlation = (         -nan ,         -nan ,         -nan )
+OPAL> * hr              = (      0.00001 ,      0.00001 ,      0.00001 ) [um]
+OPAL> * dh              =   1.00000e-10 [%]
+OPAL> * t               =        0.000 [fs]         dT    =       15.604 [ps]
+OPAL> * spos            =        0.000 [um]
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> 
+OPAL> * Integration step 0 (no phase space dump for <= 2 particles)
+OPAL> * T = 0 ns, Live Particles: 1
+OPAL> * E = 2 MeV, beta * gamma = 0.032763
+OPAL> * Bunch position: R =  294 mm, Theta = 45 Deg, Z = 0 mm
+OPAL> * Local Azimuth = 45 Deg, Local Elevation = 0 Deg
+OPAL> 
+OPAL> * *********************** Bunch information in global frame: ***********************
+OPAL> * ************** B U N C H ********************************************************* 
+OPAL> * NP              = 1
+OPAL> * Qtot            =        0.000 [fC]         Qi    =        0.000 [fC]
+OPAL> * Ekin            =       2.000 [MeV]         dEkin =        -nan [MeV]
+OPAL> * rmax            = (    207.88939 ,    207.88939 ,      0.00000 ) [um]
+OPAL> * rmin            = (    207.88939 ,    207.88939 ,      0.00000 ) [um]
+OPAL> * rms beam size   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * rms momenta     = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * mean position   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * mean momenta    = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * rms emittance   = (         -nan ,         -nan ,         -nan ) (not normalized)
+OPAL> * rms correlation = (         -nan ,         -nan ,         -nan )
+OPAL> * hr              = (      0.00001 ,      0.00001 ,      0.00001 ) [um]
+OPAL> * dh              =   1.00000e-10 [%]
+OPAL> * t               =        0.000 [fs]         dT    =       15.604 [ps]
+OPAL> * spos            =        0.000 [um]
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * Beginning of this run is at t = 0 [ns]
+OPAL> * The time step is set to dt = 0.062416 [ns]
+OPAL> * Single particle trajectory dump frequency is set to 10
+OPAL> * The frequency to solve space charge fields is set to 1
+OPAL> * The repartition frequency is set to 10
+OPAL> 
+OPAL> * ------------------------------ SINGLE PARTICLE MODE --------------------------------- *
+OPAL> * Instruction: When the total particle number is equal to 1, single particle mode is    *
+OPAL> * triggered automatically. The initial distribution file must be specified which should *
+OPAL> * contain only one line for the single particle                                         *
+OPAL> * ---------NOTE: SINGLE PARTICLE MODE ONLY WORKS SERIALLY ON A SINGLE NODE ------------ *
+OPAL> 
+OPAL> * --------------------------------- Start tracking ------------------------------------ *
+OPAL> * Cavity RF1 Phase= 4.52981e-17 [deg] transit time factor=  0.999865 dE= 0.399946 [MeV] E_kin= 2.39995 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -6.99985 [deg] transit time factor=  0.999887 dE= 0.396974 [MeV] E_kin= 2.79692 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 1
+OPAL> * SPT: Finished turn 2
+OPAL> * Cavity RF1 Phase= 25.0007 [deg] transit time factor=  0.999903 dE= 0.362486 [MeV] E_kin= 3.15941 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -27 [deg] transit time factor=  0.999914 dE= 0.356372 [MeV] E_kin= 3.51578 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 3
+OPAL> * SPT: Finished turn 4
+OPAL> * Cavity RF1 Phase= 39.0004 [deg] transit time factor=  0.999923 dE= 0.310833 [MeV] E_kin= 3.82661 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -37.9992 [deg] transit time factor=  0.999929 dE= 0.315185 [MeV] E_kin= 4.1418 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 5
+OPAL> * SPT: Finished turn 6
+OPAL> * Cavity RF1 Phase= 40.0007 [deg] transit time factor=  0.999935 dE= 0.306395 [MeV] E_kin= 4.44819 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -35.9995 [deg] transit time factor=  0.999939 dE= 0.323589 [MeV] E_kin= 4.77178 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 7
+OPAL> * SPT: Finished turn 8
+OPAL> * Cavity RF1 Phase= 30.0009 [deg] transit time factor=  0.999943 dE= 0.346387 [MeV] E_kin= 5.11817 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -22.9998 [deg] transit time factor=  0.999947 dE= 0.368183 [MeV] E_kin= 5.48635 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 9
+OPAL> * SPT: Finished turn 10
+OPAL> * Cavity RF1 Phase= 14.0001 [deg] transit time factor=  0.999951 dE= 0.388099 [MeV] E_kin= 5.87445 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -4.9991 [deg] transit time factor=  0.999954 dE= 0.39846 [MeV] E_kin= 6.27291 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 11
+OPAL> * Cavity RF1 Phase= -4.99939 [deg] transit time factor=  0.999957 dE= 0.398461 [MeV] E_kin= 6.67137 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 12
+OPAL> * SPT: Finished turn 13
+OPAL> * Cavity RF2 Phase= 13.0006 [deg] transit time factor=  0.999959 dE= 0.389731 [MeV] E_kin= 7.0611 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -19.9997 [deg] transit time factor=  0.999962 dE= 0.375863 [MeV] E_kin= 7.43696 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 14
+OPAL> * SPT: Finished turn 15
+OPAL> * Cavity RF2 Phase= 24.0009 [deg] transit time factor=  0.999964 dE= 0.365402 [MeV] E_kin= 7.80237 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -28.9992 [deg] transit time factor=  0.999965 dE= 0.349838 [MeV] E_kin= 8.15221 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 16
+OPAL> * SPT: Finished turn 17
+OPAL> * Cavity RF2 Phase= 26.0009 [deg] transit time factor=  0.999967 dE= 0.359503 [MeV] E_kin= 8.51171 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -27.9994 [deg] transit time factor=  0.999968 dE= 0.35317 [MeV] E_kin= 8.86488 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 18
+OPAL> * SPT: Finished turn 19
+OPAL> * Cavity RF2 Phase= 19.0009 [deg] transit time factor=  0.999969 dE= 0.378194 [MeV] E_kin= 9.24307 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -18 [deg] transit time factor=  0.999971 dE= 0.380412 [MeV] E_kin= 9.62348 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 20
+OPAL> * SPT: Finished turn 21
+OPAL> * Cavity RF2 Phase= 6.00098 [deg] transit time factor=  0.999972 dE= 0.397797 [MeV] E_kin= 10.0213 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -3.99958 [deg] transit time factor=  0.999973 dE= 0.399015 [MeV] E_kin= 10.4203 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 22
+OPAL> * Cavity RF2 Phase= -7.99966 [deg] transit time factor=  0.999974 dE= 0.396097 [MeV] E_kin= 10.8164 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 23
+OPAL> * SPT: Finished turn 24
+OPAL> * Cavity RF1 Phase= 10.0003 [deg] transit time factor=  0.999975 dE= 0.393913 [MeV] E_kin= 11.2103 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -19.9997 [deg] transit time factor=  0.999976 dE= 0.375869 [MeV] E_kin= 11.5862 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 25
+OPAL> * SPT: Finished turn 26
+OPAL> * Cavity RF1 Phase= 18.0008 [deg] transit time factor=  0.999977 dE= 0.380412 [MeV] E_kin= 11.9666 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -25.9996 [deg] transit time factor=  0.999977 dE= 0.359511 [MeV] E_kin= 12.3261 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 27
+OPAL> * SPT: Finished turn 28
+OPAL> * Cavity RF1 Phase= 19.0004 [deg] transit time factor=  0.999978 dE= 0.378198 [MeV] E_kin= 12.7043 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -23.9996 [deg] transit time factor=  0.999979 dE= 0.365412 [MeV] E_kin= 13.0697 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 29
+OPAL> * SPT: Finished turn 30
+OPAL> * Cavity RF1 Phase= 12.0007 [deg] transit time factor=  0.999979 dE= 0.39125 [MeV] E_kin= 13.461 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -14.9995 [deg] transit time factor=  0.99998 dE= 0.386363 [MeV] E_kin= 13.8473 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 31
+OPAL> * SPT: Finished turn 32
+OPAL> * Cavity RF1 Phase= 1.00015 [deg] transit time factor=  0.99998 dE= 0.399931 [MeV] E_kin= 14.2473 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -1.99988 [deg] transit time factor=  0.999981 dE= 0.399749 [MeV] E_kin= 14.647 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 33
+OPAL> * Cavity RF1 Phase= -11.9992 [deg] transit time factor=  0.999981 dE= 0.391253 [MeV] E_kin= 15.0383 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 34
+OPAL> * SPT: Finished turn 35
+OPAL> * Cavity RF2 Phase= 9.00047 [deg] transit time factor=  0.999982 dE= 0.395068 [MeV] E_kin= 15.4333 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -20.9996 [deg] transit time factor=  0.999982 dE= 0.373427 [MeV] E_kin= 15.8067 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 36
+OPAL> * SPT: Finished turn 37
+OPAL> * Cavity RF2 Phase= 15.0005 [deg] transit time factor=  0.999983 dE= 0.386363 [MeV] E_kin= 16.1931 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -23.9999 [deg] transit time factor=  0.999983 dE= 0.365412 [MeV] E_kin= 16.5585 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 38
+OPAL> * SPT: Finished turn 39
+OPAL> * Cavity RF2 Phase= 14.0005 [deg] transit time factor=  0.999984 dE= 0.388111 [MeV] E_kin= 16.9466 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -20.9991 [deg] transit time factor=  0.999984 dE= 0.373428 [MeV] E_kin= 17.3201 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 40
+OPAL> * SPT: Finished turn 41
+OPAL> * Cavity RF2 Phase= 7.00027 [deg] transit time factor=  0.999984 dE= 0.397012 [MeV] E_kin= 17.7171 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -10.9997 [deg] transit time factor=  0.999985 dE= 0.392645 [MeV] E_kin= 18.1097 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 42
+OPAL> * Cavity RF2 Phase= -3.99938 [deg] transit time factor=  0.999985 dE= 0.39902 [MeV] E_kin= 18.5087 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 43
+OPAL> * SPT: Finished turn 44
+OPAL> * Cavity RF1 Phase= 0.000899506 [deg] transit time factor=  0.999985 dE= 0.399994 [MeV] E_kin= 18.9087 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -13.9998 [deg] transit time factor=  0.999986 dE= 0.388113 [MeV] E_kin= 19.2968 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 45
+OPAL> * SPT: Finished turn 46
+OPAL> * Cavity RF1 Phase= 10.0002 [deg] transit time factor=  0.999986 dE= 0.393917 [MeV] E_kin= 19.6908 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -20.9996 [deg] transit time factor=  0.999986 dE= 0.373428 [MeV] E_kin= 20.0642 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 47
+OPAL> * SPT: Finished turn 48
+OPAL> * Cavity RF1 Phase= 13.0009 [deg] transit time factor=  0.999986 dE= 0.389741 [MeV] E_kin= 20.4539 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -21.9993 [deg] transit time factor=  0.999987 dE= 0.37087 [MeV] E_kin= 20.8248 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 49
+OPAL> * SPT: Finished turn 50
+OPAL> * Cavity RF1 Phase= 11.0002 [deg] transit time factor=  0.999987 dE= 0.392645 [MeV] E_kin= 21.2174 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -15.9997 [deg] transit time factor=  0.999987 dE= 0.3845 [MeV] E_kin= 21.6019 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 51
+OPAL> * SPT: Finished turn 52
+OPAL> * Cavity RF1 Phase= 3.00045 [deg] transit time factor=  0.999987 dE= 0.399447 [MeV] E_kin= 22.0014 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -5.99971 [deg] transit time factor=  0.999988 dE= 0.397804 [MeV] E_kin= 22.3992 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 53
+OPAL> * Cavity RF1 Phase= -6.99943 [deg] transit time factor=  0.999988 dE= 0.397014 [MeV] E_kin= 22.7962 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 54
+OPAL> * SPT: Finished turn 55
+OPAL> * Cavity RF2 Phase= 4.00078 [deg] transit time factor=  0.999988 dE= 0.39902 [MeV] E_kin= 23.1952 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -14.9999 [deg] transit time factor=  0.999988 dE= 0.386366 [MeV] E_kin= 23.5816 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 56
+OPAL> * SPT: Finished turn 57
+OPAL> * Cavity RF2 Phase= 11.0009 [deg] transit time factor=  0.999988 dE= 0.392645 [MeV] E_kin= 23.9742 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -19.9991 [deg] transit time factor=  0.999989 dE= 0.375875 [MeV] E_kin= 24.3501 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 58
+OPAL> * SPT: Finished turn 59
+OPAL> * Cavity RF2 Phase= 13.0003 [deg] transit time factor=  0.999989 dE= 0.389743 [MeV] E_kin= 24.7399 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -17.9992 [deg] transit time factor=  0.999989 dE= 0.38042 [MeV] E_kin= 25.1203 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 60
+OPAL> * SPT: Finished turn 61
+OPAL> * Cavity RF2 Phase= 8.00084 [deg] transit time factor=  0.999989 dE= 0.396102 [MeV] E_kin= 25.5164 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -9.99989 [deg] transit time factor=  0.999989 dE= 0.393919 [MeV] E_kin= 25.9103 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 62
+OPAL> * SPT: Finished turn 63
+OPAL> * Cavity RF2 Phase= 0.000564306 [deg] transit time factor=  0.999989 dE= 0.399996 [MeV] E_kin= 26.3103 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 64
+OPAL> * Cavity RF1 Phase= 0.000179717 [deg] transit time factor=  0.99999 dE= 0.399996 [MeV] E_kin= 26.7103 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -8.99942 [deg] transit time factor=  0.99999 dE= 0.395072 [MeV] E_kin= 27.1054 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 65
+OPAL> * SPT: Finished turn 66
+OPAL> * Cavity RF1 Phase= 9.00013 [deg] transit time factor=  0.99999 dE= 0.395071 [MeV] E_kin= 27.5004 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -14.9998 [deg] transit time factor=  0.99999 dE= 0.386367 [MeV] E_kin= 27.8868 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 67
+OPAL> * SPT: Finished turn 68
+OPAL> * Cavity RF1 Phase= 13.0007 [deg] transit time factor=  0.99999 dE= 0.389743 [MeV] E_kin= 28.2765 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -16.9992 [deg] transit time factor=  0.99999 dE= 0.38252 [MeV] E_kin= 28.6591 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 69
+OPAL> * SPT: Finished turn 70
+OPAL> * Cavity RF1 Phase= 12.0005 [deg] transit time factor=  0.99999 dE= 0.391255 [MeV] E_kin= 29.0503 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -11.9999 [deg] transit time factor=  0.999991 dE= 0.391255 [MeV] E_kin= 29.4416 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 71
+OPAL> * SPT: Finished turn 72
+OPAL> * Cavity RF1 Phase= 6.00035 [deg] transit time factor=  0.999991 dE= 0.397805 [MeV] E_kin= 29.8394 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -3.99939 [deg] transit time factor=  0.999991 dE= 0.399022 [MeV] E_kin= 30.2384 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 73
+OPAL> * Cavity RF1 Phase= -2.99918 [deg] transit time factor=  0.999991 dE= 0.399448 [MeV] E_kin= 30.6379 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 74
+OPAL> * SPT: Finished turn 75
+OPAL> * Cavity RF2 Phase= 6.00004 [deg] transit time factor=  0.999991 dE= 0.397805 [MeV] E_kin= 31.0357 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -9.99987 [deg] transit time factor=  0.999991 dE= 0.39392 [MeV] E_kin= 31.4296 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 76
+OPAL> * SPT: Finished turn 77
+OPAL> * Cavity RF2 Phase= 12.0008 [deg] transit time factor=  0.999991 dE= 0.391255 [MeV] E_kin= 31.8208 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -13.9998 [deg] transit time factor=  0.999991 dE= 0.388115 [MeV] E_kin= 32.2089 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 78
+OPAL> * SPT: Finished turn 79
+OPAL> * Cavity RF2 Phase= 14.0003 [deg] transit time factor=  0.999992 dE= 0.388114 [MeV] E_kin= 32.5971 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -12.9994 [deg] transit time factor=  0.999992 dE= 0.389746 [MeV] E_kin= 32.9868 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 80
+OPAL> * SPT: Finished turn 81
+OPAL> * Cavity RF2 Phase= 10.0005 [deg] transit time factor=  0.999992 dE= 0.393919 [MeV] E_kin= 33.3807 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -5.99993 [deg] transit time factor=  0.999992 dE= 0.397806 [MeV] E_kin= 33.7785 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 82
+OPAL> * SPT: Finished turn 83
+OPAL> * Cavity RF2 Phase= 3.00014 [deg] transit time factor=  0.999992 dE= 0.399449 [MeV] E_kin= 34.178 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 84
+OPAL> * Cavity RF1 Phase= 3.00003 [deg] transit time factor=  0.999992 dE= 0.399449 [MeV] E_kin= 34.5774 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -4.99997 [deg] transit time factor=  0.999992 dE= 0.398475 [MeV] E_kin= 34.9759 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 85
+OPAL> * SPT: Finished turn 86
+OPAL> * Cavity RF1 Phase= 10.001 [deg] transit time factor=  0.999992 dE= 0.393919 [MeV] E_kin= 35.3698 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -10.9997 [deg] transit time factor=  0.999992 dE= 0.392648 [MeV] E_kin= 35.7625 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 87
+OPAL> * SPT: Finished turn 88
+OPAL> * Cavity RF1 Phase= 14.0008 [deg] transit time factor=  0.999992 dE= 0.388114 [MeV] E_kin= 36.1506 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -11.9997 [deg] transit time factor=  0.999992 dE= 0.391257 [MeV] E_kin= 36.5418 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 89
+OPAL> * SPT: Finished turn 90
+OPAL> * Cavity RF1 Phase= 13.0003 [deg] transit time factor=  0.999992 dE= 0.389745 [MeV] E_kin= 36.9316 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -7.99945 [deg] transit time factor=  0.999993 dE= 0.396105 [MeV] E_kin= 37.3277 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 91
+OPAL> * SPT: Finished turn 92
+OPAL> * Cavity RF1 Phase= 7.00043 [deg] transit time factor=  0.999993 dE= 0.397015 [MeV] E_kin= 37.7247 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 93
+OPAL> * Cavity RF2 Phase= 0.000466485 [deg] transit time factor=  0.999993 dE= 0.399997 [MeV] E_kin= 38.1247 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 94
+OPAL> * Cavity RF1 Phase= -0.999411 [deg] transit time factor=  0.999993 dE= 0.399936 [MeV] E_kin= 38.5246 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 95
+OPAL> * Cavity RF2 Phase= 8.0009 [deg] transit time factor=  0.999993 dE= 0.396104 [MeV] E_kin= 38.9207 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -7.99913 [deg] transit time factor=  0.999993 dE= 0.396105 [MeV] E_kin= 39.3169 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 96
+OPAL> * SPT: Finished turn 97
+OPAL> * Cavity RF2 Phase= 14.0005 [deg] transit time factor=  0.999993 dE= 0.388115 [MeV] E_kin= 39.705 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -10.9991 [deg] transit time factor=  0.999993 dE= 0.392649 [MeV] E_kin= 40.0976 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 98
+OPAL> * SPT: Finished turn 99
+OPAL> * Cavity RF2 Phase= 15.0002 [deg] transit time factor=  0.999993 dE= 0.386367 [MeV] E_kin= 40.484 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -7.99987 [deg] transit time factor=  0.999993 dE= 0.396105 [MeV] E_kin= 40.8801 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 100
+OPAL> * SPT: Finished turn 101
+OPAL> * Cavity RF2 Phase= 11 [deg] transit time factor=  0.999993 dE= 0.392648 [MeV] E_kin= 41.2727 [MeV] Time dep freq = 1
+OPAL> * Cavity RF1 Phase= -1.99926 [deg] transit time factor=  0.999993 dE= 0.399754 [MeV] E_kin= 41.6725 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 102
+OPAL> * SPT: Finished turn 103
+OPAL> * Cavity RF2 Phase= 3.001 [deg] transit time factor=  0.999993 dE= 0.399449 [MeV] E_kin= 42.0719 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 104
+OPAL> * Cavity RF1 Phase= 7.00014 [deg] transit time factor=  0.999993 dE= 0.397016 [MeV] E_kin= 42.469 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -3.9991 [deg] transit time factor=  0.999994 dE= 0.399023 [MeV] E_kin= 42.868 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 105
+OPAL> * SPT: Finished turn 106
+OPAL> * Cavity RF1 Phase= 13.001 [deg] transit time factor=  0.999994 dE= 0.389744 [MeV] E_kin= 43.2577 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -7.99937 [deg] transit time factor=  0.999994 dE= 0.396105 [MeV] E_kin= 43.6538 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 107
+OPAL> * SPT: Finished turn 108
+OPAL> * Cavity RF1 Phase= 16.0006 [deg] transit time factor=  0.999994 dE= 0.384501 [MeV] E_kin= 44.0383 [MeV] Time dep freq = 1
+OPAL> * Cavity RF2 Phase= -6.99994 [deg] transit time factor=  0.999994 dE= 0.397016 [MeV] E_kin= 44.4353 [MeV] Time dep freq = 1
+OPAL> * SPT: Finished turn 109
+OPAL> * SPT: Finished turn 110
+OPAL> 
+OPAL> * ---------------------------- DONE TRACKING PARTICLES -------------------------------- * 
+OPAL> * Final energy of reference particle = 44.435 [MeV]
+OPAL> * Total phase space dump number(includes the initial distribution) = 0
+OPAL> * One can restart simulation from the last dump step (--restart -1)
+OPAL> *
+OPAL> * Finished during turn 111 (110 turns completed)
+OPAL> * Cave: Turn number is not correct for restart mode
+OPAL> 
+OPAL> * *********************** Bunch information in global frame: ***********************
+OPAL> * ************** B U N C H ********************************************************* 
+OPAL> * NP              = 1
+OPAL> * Qtot            =        0.000 [fC]         Qi    =        0.000 [fC]
+OPAL> * Ekin            =      44.435 [MeV]         dEkin =        -nan [MeV]
+OPAL> * rmax            = (    862.80502 ,    804.49001 ,      0.00000 ) [um]
+OPAL> * rmin            = (    862.80502 ,    804.49001 ,      0.00000 ) [um]
+OPAL> * rms beam size   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * rms momenta     = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * mean position   = (         -nan ,         -nan ,         -nan ) [m]
+OPAL> * mean momenta    = (         -nan ,         -nan ,         -nan ) [beta gamma]
+OPAL> * rms emittance   = (         -nan ,         -nan ,         -nan ) (not normalized)
+OPAL> * rms correlation = (         -nan ,         -nan ,         -nan )
+OPAL> * hr              = (      0.00001 ,      0.00001 ,      0.00001 ) [um]
+OPAL> * dh              =   1.00000e-10 [%]
+OPAL> * t               =        9.887 [ms]         dT    =       15.604 [ps]
+OPAL> * spos            =       313.740 [m]
+OPAL> * ********************************************************************************** 
+OPAL> 
+OPAL> * ----------------------------------------------- *
+OPAL> * Finalizing i.e. write data and close files :
+OPAL> * Finalize cyclotron
+OPAL> * Finalize probe PROBE1
+OPAL> * Finalize probe PROBE2
+OPAL> * ----------------------------------------------- *
+OPAL> * End of input stream "CJ1_acc_DESIGN_102019_alpha_plot.in".
+Timings> -----------------------------------------------------------------
+Timings>      Timing results for 1 nodes:
+Timings> -----------------------------------------------------------------
+Timings> mainTimer........... Wall tot =    2.58589, CPU tot =       2.52
+Timings> 
+Timings> Binaryrepart........ Wall max =    0.00023, CPU max =          0
+Timings>                      Wall avg =    0.00023, CPU avg =          0
+Timings>                      Wall min =    0.00023, CPU min =          0
+Timings> 
+Timings> Boundingbox......... Wall max =    7.3e-05, CPU max =          0
+Timings>                      Wall avg =    7.3e-05, CPU avg =          0
+Timings>                      Wall min =    7.3e-05, CPU min =          0
+Timings> 
+Timings> Boundingbox-bounds.. Wall max =    1.3e-05, CPU max =          0
+Timings>                      Wall avg =    1.3e-05, CPU avg =          0
+Timings>                      Wall min =    1.3e-05, CPU min =          0
+Timings> 
+Timings> Boundingbox-update.. Wall max =      6e-06, CPU max =          0
+Timings>                      Wall avg =      6e-06, CPU avg =          0
+Timings>                      Wall min =      6e-06, CPU min =          0
+Timings> 
+Timings> Compute Statistics.. Wall max =   0.065105, CPU max =       0.07
+Timings>                      Wall avg =   0.065105, CPU avg =       0.07
+Timings>                      Wall min =   0.065105, CPU min =       0.07
+Timings> 
+Timings> Create Distr........ Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Dump................ Wall max =    1.32467, CPU max =       1.37
+Timings>                      Wall avg =    1.32467, CPU avg =       1.37
+Timings>                      Wall min =    1.32467, CPU min =       1.37
+Timings> 
+Timings> Fast inside test.... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Frametransform...... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Histogram........... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Initialize geometry. Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Inside test......... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Integration......... Wall max =   0.558822, CPU max =       0.57
+Timings>                      Wall avg =   0.558822, CPU avg =       0.57
+Timings>                      Wall min =   0.558822, CPU min =       0.57
+Timings> 
+Timings> Load Distr.......... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Particle Inside..... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Ray tracing......... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Secondary emission.. Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> SelfField total..... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Write H5-File....... Wall max =          0, CPU max =          0
+Timings>                      Wall avg =          0, CPU avg =          0
+Timings>                      Wall min =          0, CPU min =          0
+Timings> 
+Timings> Write Stat.......... Wall max =    1.22589, CPU max =       1.29
+Timings>                      Wall avg =    1.22589, CPU avg =       1.29
+Timings>                      Wall min =    1.22589, CPU min =       1.29
+Timings> 
+Timings> -----------------------------------------------------------------
