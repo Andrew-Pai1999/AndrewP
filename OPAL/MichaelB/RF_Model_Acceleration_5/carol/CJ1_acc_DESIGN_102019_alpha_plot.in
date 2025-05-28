@@ -1,0 +1,87 @@
+OPTION, ECHO=FALSE;
+OPTION, SPTDUMPFREQ = 10;
+OPTION, REPARTFREQ = 10;
+OPTION, PSDUMPFREQ = 40000000000;
+OPTION, PSDUMPEACHTURN = FALSE;
+//OPTION, PSDUMPLOCALFRAME = TRUE;
+OPTION, ASCIIDUMP=TRUE;
+OPTION, VERSION=20000;
+
+Title,string="PIP-28";
+
+CALL,FILE= "Temp1.dat";
+
+Real Edes=0.002;
+Real r0=294;
+Real AMASS=3.727377;
+//note for alphas this is the 8th harmonic
+Real h=4;
+
+// h=1 Real f1=h*10.9206*1.00;
+// h=2 Real f1=h*10.9206*1.00;
+// PROTON Real f1=h*10.9206*0.999;
+//note for alphas this is actually the 8th harmonic!!!
+//Real f1=h*10.9206*1.0114;
+//Real f1=h*10.9206*1.0256;
+Real f1=h*11.1084*1.00159;
+//h=4 Real f1=h*10.9206*0.9655300;
+//h=4 0.975 VReal f1=h*10.9206*0.965138;
+
+Real gamma=(Edes+AMASS)/AMASS;
+Real beta=sqrt(1-(1/gamma^2));
+Real gambet=gamma*beta;
+Real P0 = gamma*beta*AMASS;
+// h=1 Real Pi1=20;
+// h=2 Real Pi1=30;
+// h=4 Real Pi1=60.5;
+
+//PHI0=(Pi1+PhiS) for cavity 1 and PHI0=(Pi2+PhiS)
+
+//Real Pi1=20;
+//Real Pi2=Pi1-180+(h-1)*180;
+
+Real PhiS=0;
+Real Pi1=0;
+Real Pi2=Pi1-180+(h-1)*180;
+
+
+Real A1=45;
+Real A2=A1-180;
+Real V1=0.200;
+Real V2=0.200;
+
+// pip: Cyclotron, TYPE=CARBONCYCL, CYHARMON=h, PHIINIT=45.0, PRINIT=0, RINIT=r0, MINZ=-2000, MAXZ=2000, SYMMETRY=4.0, 
+// RFFREQ=f1, FMAPFN="../../Field-Maps/OPALField-Map-P35v8a-052018.dat";
+
+pip: Cyclotron, TYPE=CARBONCYCL, CYHARMON=h, PHIINIT=45.0, PRINIT=0, RINIT=r0, MINZ=-2000, MAXZ=2000, SYMMETRY=4.0, RFFREQ=f1, FMAPFN="OPALField_alpha_2-60MeV_4cm_gap_10292019.dat";
+
+RF1:RFCAVITY, TYPE=SINGLEGAP, VOLT=V1, FMAPFN="Cav3.dat", FREQ=f1, RMIN=10, RMAX=2000, ANGLE=A1, GAPWIDTH=2, PHI0=(Pi1+PhiS), PDIS=0;
+
+RF2:RFCAVITY, TYPE=SINGLEGAP, VOLT=V1, FMAPFN="Cav3.dat", FREQ=f1, RMIN=10, RMAX=2000, ANGLE=A2, GAPWIDTH=2, PHI0=(Pi2+PhiS), PDIS=0;
+
+Probe1: Probe, xstart=0, xend=-3005, ystart=0, yend=3005;
+Probe2: Probe, xstart=0, xend=3005, ystart=0, yend=0;
+
+l1:   LINE = (pip,RF1,RF2,Probe1,Probe2);
+
+Dist1:DISTRIBUTION, TYPE=fromfile,FNAME="PartDatabase.dat"; 
+
+// ALTERNATIVELY you can generate it using opal, and choose type gauss, binomial etc
+//Dist1:DISTRIBUTION, DISTRIBUTION=gauss,
+//sigmax= 0.0075, sigmapx=2, corrx=-0.8,
+//sigmay= 0.006, sigmapy=0.1, corry=0.90,
+//sigmaz= 0.004, sigmapz=1, corrz=-0.9, CUTOFFX = 2.0, CUTOFFY = 2.0;
+
+Fs1:FIELDSOLVER, FSTYPE=NONE, MX=32, MY=32, MT=32, 
+PARFFTX=true, PARFFTY=true, PARFFTT=false,
+BCFFTX=open, BCFFTY=open, BCFFTT=open;
+
+beam1: BEAM, PARTICLE=ALPHA, PC=P0, NPART=1, BCURRENT=10E-3, CHARGE=2.0, MASS=AMASS, BFREQ= f1;
+
+SELECT, LINE=l1;
+
+TRACK,LINE=l1, BEAM=beam1, MAXSTEPS=1440*110, STEPSPERTURN=1440,TIMEINTEGRATOR="RK-4";
+ RUN, METHOD = "CYCLOTRON-T",BEAM=beam1, FIELDSOLVER=Fs1, DISTRIBUTION=Dist1;
+ENDTRACK;
+
+STOP;

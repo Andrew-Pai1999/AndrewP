@@ -1,0 +1,256 @@
+
+Overview of the bfield format used in the tune calculation, as well as other field types that you can define:
+https://gitlab.psi.ch/OPAL/Manual-2.2/wikis/opalcycl#sec.opalcycl.fieldmap
+
+Overall Manual, may contain some repeats of the other links:
+https://pdfs.semanticscholar.org/af2e/f398fb512d48a7a1d348f85a77deb4df4bf2.pdf
+
+OPAL -t fieldmaps:
+https://gitlab.psi.ch/OPAL/Manual-2.0/wikis/fieldmaps#appendix.opalt-fieldmaps
+
+
+The link below tells you how to run their two example calculations
+https://gitlab.psi.ch/OPAL/src/wikis/Cyclotron
+
+
+From first link above
+"A bash script tuning.sh is shown on the next page, to execute
+OPAL-cycl for tune calculations.
+
+tuning.sh./radia-run
+To start execution, just run
+tuning.sh which uses the input file testcycl.in and the auxiliary
+file FIXPO SEO_. The output file is plotdata from which one can plot
+the tune diagram."
+
+To really understand this I need to understand Green's Function
+https://en.wikipedia.org/wiki/Green%27s_function
+
+1/24/20
+I installed docker using on the PI
+
+https://linuxize.com/post/how-to-install-and-use-docker-on-raspberry-pi/
+
+Next
+mkdir beamsim
+cd beamsim
+
+curl radia.run | bash
+
+after doiing the above once I will just do the below command every time
+./radia-run
+
+First time got a "Got Permission Denied" messagechmo
+
+sudo su -
+
+switches to root
+it would not let me run it as root.  
+
+I had to type this on a raspberry pi....but then the pi was too slow...
+newgrp docker
+
+
+############################################
+##########################################
+## This is what Lena does 
+in her beamsim file she made a folder called vagrant  she downloaded all the files from the psi example
+she types
+./radia-run 
+    it takes some time...updates docker image then it changes user to py2
+	 when you hit ls you get a bin and a src....
+	 go up a directory back into vagrant.  then do it again and you get to basically get to a directory for a virtuual linux machine
+	   with bin and dev home and all of those normal ole linux things
+	   
+	   from there vagrant is listed.
+	   
+	   From there go into vagrant and then when you type ls you are in the directory with radia run.
+	   
+	   
+###################################################################
+
+
+1/29/2020
+Now I am installing for Docker for  ubuntu as shown here
+
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+
+First time got a "Got Permission Denied" messagechmo
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+i followed several tries from this to resolve this
+https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+
+ultimately perhaps not ideal I used 
+
+sudo chmod 666 /var/run/docker.sock
+this fixed it.....
+###############################################################
+
+
+gnuplot --persist plotytle
+
+
+########################################################################
+##########################################################################
+2/8/2020 
+
+Installing docker again on my own computer using the website above
+
+sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+
+verify by  typing 
+
+sudo apt-key fingerprint 0EBFCD88
+
+now do this....I do not really know what the hell it does...
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+######################################################################################
+########################################################################################
+I had to add this onto the commands....
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+then check to see if it worked with this....
+
+sudo docker run hello-world
+
+curl radia.run | bash
+
+after doiing the above once I will just do the below command every time
+./radia-run
+
+Then follow lenas instructions above....
+
+and remember for permission denied errors do this.....
+sudo chmod 666 /var/run/docker.sock
+
+############################################################################################
+
+
+4/24/2020
+So for me to run this as installed right now I 
+ 1. Navigate to ~beamsim directory
+   2.  ./radia-run
+      3.  If you get a permission denied error....as I do every time then
+          sudo chmod 666 /var/run/docker.sock
+        4.  again type 
+            ./radia-run 
+            it takes some time...updates docker image then it changes user to py2
+	        when you hit ls you get a bin and a src....
+	        go up a directory back into vagrant.  then do it again and you get to 
+            basically get to a directory for a virtuual linux machine
+	        with bin and dev home and all of those normal ole linux things
+	   
+	        from there vagrant is listed  go into this vagrant directory
+	   
+	   From there go into vagrant and then when you type ls you are in the directory with radia run.
+
+to Run opal example simply type:
+opal cyclotronTune-2.1.in
+
+Then plot it
+python3 plotTunes.py
+
+To Run Lenas
+opal cyclotron2.in | Tee cyclotron2.out
+	   
+
+#################################################################################################
+Running a shell in Ubuntu refer to the file in beamsim called hello shell
+it seems in Ubuntu that I must type type
+bash helloShell.sh 
+
+another shell problem......a deja vu problem...meaning a similar problem to one I had years before.
+it seems perhaps notepad++ saves files in a windows like format so there are end of lines oor somethin
+like that 
+
+sudo apt-get install dos2unix
+
+Then,
+
+dos2unix [file]
+
+Full documentation:
+
+man dos2unix
+
+
+#########################################################################################
+There is a closed orbit finder in OPAL 2.2 and higher...
+It is demonstrated the 2nd example from 
+https://gitlab.psi.ch/OPAL/src/wikis/Cyclotron
+
+says it needs Opal 2.2 or higher and it appears I have OPAL 2.0.1
+###########################################################################################
+
+In the accelerated orbit calculation we run the example with:
+opal cyclotron2.in | tee cyclotron2.out
+tee is just a linux command that tees of the output (like a plumbing tee) so that you can send it to 2 places.  
+
+
+
+
+
+	  Also if you type opal it should open opal
+
+############################################################################################
+###  How I tuned in a model with RF               ##########################################
+############################################################################################
+
+I first looked at a picture of some orbits that we had got to work to try to get an idea of 
+how the magnetic field shape was.....I wanted to know for sure where the particle angle would 
+be 0 crossing the X axis or where Y equals 0.  I decided to try starting the model to the left..which is 
+180 degrees from originally starting.  Looking back, I do not think this made as big of a difference
+as the next step because I think the triangle should always be symmetric about the X axis or when Y
+is 0 thus it should have been fine at 0....but oh well
+
+Next I set the RF voltage to 0.  I bumped up the energy to close to 10 MeV then and started the initial 
+reference radius at something bigger....I ended up at .4 meters.  I then adjust the energy to make the orbit 
+come back to where it started.  For this I only ran a couple of turns for the simulation.   Once I got this to work I 
+changed it to 100 turns for the simulation.  I then adjusted the energy of the beam to find the range of 
+energies that produced a stable orbit for this specific radius.  
+
+Once I found the range of energies I picked the midpoint between the stable energies.
+
+I then pulled up the file cyclotron2-afterEachTurn.dat.  This file has the time that it takes for each orbit.
+I looked at the times for each orbit.  It was about 1.20232790e+02 [ns] though it varied from turn to turn a tad....
+I think I could see how it varied to understand phase slippage....at any rate I divide 1 by that to come up with a
+more precise RF frequency to set the RF and beam frequency to.  
+
+Now I added RF back into the picture.  I increased the number of turns until it could no longer complete the simulation.
+I then tuned on the RF Phase to increase how many turns the beam could make it through.  I kept repeating this process until
+I was accelerating.  
+
+Make a method of plotting the energy from the ouput file along with the RF Phase.  We are slipping with respect to the RF
+If I get a stable orbit I can accelerate and decelerate several times.  
+
+###################################################################################
+I am confused in the file cyclotrn2-trackOrbit.dat
+  it is obvious what X and Y are, but beta_x*gamma  and beta_y*gamma are not as obvious to me.
+
+    In the phase space ellipse you can relate this value to x' x and the emittance but ????
+
+    You  can definitely do matching
+
+    how to plot energy....twiss.out???
+
+
+
