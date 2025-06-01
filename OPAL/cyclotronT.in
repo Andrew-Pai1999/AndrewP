@@ -137,7 +137,7 @@ mm: CYCLOTRON, TYPE="CARBONCYCL", CYHARMON=2, PHIINIT=110.0, PRINIT=pr0, RINIT=r
 // SYMMETRY: Number of sector in the cyclotron.
 // RFFREQ:   RF frequency
 // FMAPFN:   Name of B-field data file
-//SLPTC:     Slopes of the rising edge [1/mm] (for PSI-BFIELD-MIRRORED type only)
+// SLPTC:     Slopes of the rising edge [1/mm] (for PSI-BFIELD-MIRRORED type only)
 //--------------------------------------------------------------//
 
 Rf0: RFCAVITY, VOLT=volt1st, FMAPFN="rffield1.dat", TYPE="SINGLEGAP", 
