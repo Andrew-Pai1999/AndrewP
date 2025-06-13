@@ -6,75 +6,40 @@ Created on Fri Jun  6 10:39:50 2025
 """
 
 import numpy as np
-from scipy.interpolate import RegularGridInterpolator
+import pandas as pd
 
-from scipy.interpolate import RegularGridInterpolator
+# 讀取資料（跳過表頭）
+df = pd.read_csv("data.txt", sep='\s+', comment='%', header=None,
+                 names=["x", "y", "z", "Bz_T"])
 
-import matplotlib.pyplot as plt
+# 轉換為極座標 r [mm]，theta [deg]
+df["r"] = np.sqrt(df["x"]**2 + df["y"]**2)
+df["theta"] = np.degrees(np.arctan2(df["y"], df["x"])) % 360
+df["Bz_kG"] = df["Bz_T"] * 10  # Tesla 轉換為 kG
 
-# Example: field defined on a grid
-x = np.linspace(-1, 1, 100)
-y = np.linspace(-1, 1, 100)
-X, Y = np.meshgrid(x, y)
+# 四捨五入網格精度（可自訂）
+dr = 2.0
+dtheta = 1.0
+df["r_rounded"] = np.round(df["r"] / dr) * dr
+df["theta_rounded"] = np.round(df["theta"] / dtheta) * dtheta
 
-print("X is ", X)
-print("X[0][0]= ", X[0][0])
-print("Y is ", Y)
-print("Y[0][0]= ", Y[0][0])
+# 排序
+df = df.sort_values(by=["r_rounded", "theta_rounded"])
 
-F = np.sin(X**2 + Y**2)  # Example field
-print("F is ", F)
-print("F[0][0]= ", F[0][0])
-print("F is shape:", F.shape)
-#F = 5  # Example field
+# 推算 header 參數
+rmin = df["r_rounded"].min()
+thetamin = df["theta_rounded"].min()
+Nr = df["r_rounded"].nunique()
+Ntheta = df["theta_rounded"].nunique()
 
+# 注意：如需小數網格，dr/dtheta 可寫為負數
+header = f"{rmin:.3f} {dr:.3f} {thetamin:.3f} {dtheta:.3f} {Ntheta} {Nr}"
 
-# Define the polar grid
-r = np.linspace(0, np.sqrt(2), 100)         # radius from 0 to max diagonal
-theta = np.linspace(0, 2*np.pi, 200)        # full circle
-R, Theta = np.meshgrid(r, theta)
+# 輸出格式：r theta Bz[kG]
+output_data = df[["r_rounded", "theta_rounded", "Bz_kG"]]
+output_data.columns = ["r", "theta", "Bz_kG"]
 
-# Convert to Cartesian for interpolation
-X_polar = R * np.cos(Theta)
-Y_polar = R * np.sin(Theta)
-print("X_polar: ", X_polar)
-print("Y_polar: ", Y_polar)
-
-
-#from scipy.interpolate import RegularGridInterpolator
-
-# Create an interpolator for the Cartesian field
-interp_func = RegularGridInterpolator((y, x), F, bounds_error=False)  # Note: y first, then x
-print("interp_func: ", interp_func)
-
-# Prepare points for interpolation
-points = np.vstack([Y_polar.ravel(), X_polar.ravel()]).T
-print("points: ", points)
-this=Y_polar
-this2=X_polar.ravel()
-print("Points len is ", len(points))
-
-
-#a = np.arange(6)
-#print(R)
-#print(len(R))
-#print(R.shape)
-F_polar = interp_func(points).reshape(R.shape)#R.shape is (200,100)
-
-print("F: ", F[0])
-print("F_polar: ", F_polar[0])
-#F_polar = interp_func(points).reshape(200,100)
-
-#F_polar = interp_func(points)
-
-
-
-#import matplotlib.pyplot as plt
-
-plt.subplot(1,1,1,projection='polar')
-plt.pcolormesh(Theta, R, F_polar, shading='auto')
-plt.xlabel("θ [rad]")
-plt.ylabel("r")
-plt.title("Field in Polar Coordinates")
-plt.colorbar(label="Field value")
-plt.show()
+# 寫入檔案
+with open("converted_field.txt", "w") as f:
+    f.write(header + "\n")
+    output_data.to_csv(f, sep=' ', index=False, header=False, float_format="%.6f")
