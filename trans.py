@@ -6,7 +6,7 @@ raw = pd.read_csv("data.txt", comment='%', sep=r'\s+',
                   names=["x_in", "y_in", "z_in", "Bz_T"])
 
 # Only use data near z = 0
-data = raw[np.abs(raw["z_in"]) < 1e-2]
+data = raw[np.abs(raw["z_in"]) < 1e-4]
 
 # Convert to mm and kG
 x_mm = data["x_in"].values * 25.4
@@ -25,11 +25,17 @@ r_clean = grouped['r'].values
 bz_clean = grouped['bz'].values
 
 # ----- Define OPAL radial grid -----
-r_min = int(np.floor(r_clean.min()))       # ~1955
-r_max = int(np.ceil(r_clean.max()))        # ~2769
+#r_min = int(np.floor(r_clean.min()))       # ~1955
+#r_max = int(np.ceil(r_clean.max()))        # ~2769
+#r = 1
+#nr = (r_max - r_min) + 1
+#r_grid = r_min + dr * np.arange(nr)
+r_min = 0                  # if you want to simulate from the center
+r_max = int(np.ceil(76 * 25.4))  # → 1931 mm
 dr = 1
-nr = (r_max - r_min) + 1
+nr = (r_max - r_min) + 1   # → 1932 radial steps
 r_grid = r_min + dr * np.arange(nr)
+
 
 # Interpolate Bz(r)
 bz_r = np.interp(r_grid, r_clean, bz_clean, left=0, right=0)
