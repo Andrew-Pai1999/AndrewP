@@ -1,77 +1,55 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jun  6 10:39:50 2025
-
-@author: mback
-"""
-
 import numpy as np
 import pandas as pd
+from scipy.interpolate import griddata
 
-# === Step 1: read COMSOL data ===
-df = pd.read_csv("data.txt", sep='\s+', comment='%', header=None,
-                 names=["x", "y", "z", "Bz_T"])
+# Load data (x, y, z in inches; Bz in Tesla)
+data = pd.read_csv("data.txt", sep='\s+', header=None, names=["x", "y", "z", "Bz"])
 
-# === Step 2: transfer unit ===
-df[["x", "y", "z"]] *= 25.4           # 英吋轉公釐
-df["Bz_kG"] = df["Bz_T"] * 10         # Tesla 轉 kG
+# Filter for median plane
+data = data[np.abs(data["z"]) < 1e-3]  # or a narrow z band
 
-# === Step 3: calculate polar coordinate r, θ ===
-df["r"] = np.sqrt(df["x"]**2 + df["y"]**2)
-df["theta"] = np.degrees(np.arctan2(df["y"], df["x"])) % 360
+# Unit conversion
+x_mm = data["x"] * 25.4
+y_mm = data["y"] * 25.4
+bz_kg = data["Bz"] * 10
 
-# === Step 4: set up grid===
-dr = 2.0
-dtheta = 1.0
-rmin = 0.0
-rmax = 72.0
+# Polar coordinates
+r = np.sqrt(x_mm**2 + y_mm**2)
+theta = np.degrees(np.arctan2(y_mm, x_mm))
 
-# create index for r and theta
-df["r_bin"] = np.floor(df["r"] / dr) * dr
-df["r_bin"] = np.round(df["r"] / dr) * dr
-df["theta_bin"] = np.round(df["theta"] / dtheta) * dtheta
+# Set up grid
+r_min = 3000  # example
+dr = 10
+nr = 161
+theta_min = 0
+dtheta = -3
+ntheta = 300
 
-# filter radius range
-df = df[df["r_bin"] <= rmax]
+r_vals = r_min + dr * np.arange(nr)
+theta_vals = theta_min + dtheta * np.arange(ntheta)
 
-# create index for r and theta bins
-r_bins = np.arange(rmin, rmax + dr, dr)
-theta_bins = np.arange(0.0, 360.0, dtheta)
+# Create mesh grid
+R, T = np.meshgrid(r_vals, theta_vals)
+X = R * np.cos(np.radians(T))
+Y = R * np.sin(np.radians(T))
 
-# create pivot table（r 為行，θ 為列）
-pivot = pd.DataFrame(index=r_bins, columns=theta_bins)
+# Interpolate onto grid
+points = np.column_stack((x_mm, y_mm))
+bz_grid = griddata(points, bz_kg, (X, Y), method='linear', fill_value=0)
 
-# refill Bz values into pivot table
-for _, row in df.iterrows():
-    r = round(row["r_bin"], 1)
-    theta = round(row["theta_bin"], 1)
-    if r in pivot.index and theta in pivot.columns:
-        pivot.at[r, theta] = row["Bz_kG"]
+# Flatten (θ-major)
+bz_flat = bz_grid.flatten()
 
-# refill lose data as  0
-pivot = pivot.fillna(0.0)
-
-# === Step 5: exportdata with Header ===
-Ntheta = len(theta_bins)
-Nr = len(r_bins)
-header_lines = [
-    f"{rmin:.1f}",               # rmin [mm]
-    f"{dr:.1f}",                 # Δr [mm]
-    f"0.0",                      # thetamin [deg]
-    f"{dtheta:.1f}",             # Δθ [deg]
-    f"{Ntheta}",                 # Nθ
-    f"{Nr}"                      # Nr
-]
-
-# === Step 6: export data ===
-with open("Bz_output.txt", "w") as f:
-    # 輸出 Header
-    f.write('\n'.join(header_lines) + '\n')
-    
-    # 輸出每一行（每行一個 r 對應的 360 個角度）
-    for r in pivot.index:
-        values = pivot.loc[r].values
-        line = ' '.join(f"{val:.6e}" for val in values)
-        f.write(line + '\n')
-
-print("✅ Bz_output.txt 已完成")
+# Write to file
+with open("bz_opal.dat", "w") as f:
+    f.write(f"{r_min:.1f}\n")
+    f.write(f"{dr:.1f}\n")
+    f.write(f"{theta_min:.1f}\n")
+    f.write(f"{dtheta:.1f}\n")
+    f.write(f"{ntheta}\n")
+    f.write(f"{nr}\n")
+    # Write field data
+    for i, val in enumerate(bz_flat):
+        f.write(f"{val:.6e} ")
+        if (i + 1) % 5 == 0:
+            f.write("\n")
