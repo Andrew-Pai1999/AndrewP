@@ -15,7 +15,10 @@ bz_kg = data["Bz"] * 10
 
 # Polar coordinates
 r = np.sqrt(x_mm**2 + y_mm**2)
-theta = np.degrees(np.arctan2(y_mm, x_mm))
+def new_func(x_mm, y_mm):
+    theta = np.degrees(np.arctan2(y_mm, x_mm))
+
+new_func(x_mm, y_mm)
 
 # Set up grid
 r_min = 3000  # example
