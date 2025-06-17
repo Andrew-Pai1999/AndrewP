@@ -1,14 +1,15 @@
 import numpy as np
 import pandas as pd
 
-# ----- Load data from COMSOL -----
+
 raw = pd.read_csv("data.txt", comment='%', sep=r'\s+', 
                   names=["x_in", "y_in", "z_in", "Bz_T"])
+data = raw[np.abs(raw["z_in"]) < 1e-5]
 
-# Only use data near z = 0
-data = raw[np.abs(raw["z_in"]) < 1e-4]
-
-# Convert to mm and kG
+#convert units
+# x_in: inches to mm (1 inch = 25.4 mm)
+# Bz_T: Tesla to kg (1 T = 10 kg for magnetic field strength in OPAL)
+# y_in and z_in are not used in the radial profile calculation 
 x_mm = data["x_in"].values * 25.4
 bz_kg = data["Bz_T"].values * 10
 r_mm = np.abs(x_mm)
@@ -25,11 +26,6 @@ r_clean = grouped['r'].values
 bz_clean = grouped['bz'].values
 
 # ----- Define OPAL radial grid -----
-#r_min = int(np.floor(r_clean.min()))       # ~1955
-#r_max = int(np.ceil(r_clean.max()))        # ~2769
-#r = 1
-#nr = (r_max - r_min) + 1
-#r_grid = r_min + dr * np.arange(nr)
 r_min = 0                  # if you want to simulate from the center
 r_max = int(np.ceil(76 * 25.4))  # → 1931 mm
 dr = 1
