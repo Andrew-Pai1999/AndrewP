@@ -39,7 +39,7 @@ bz_r = np.interp(r_grid, r_clean, bz_clean, left=0, right=0)
 # ----- Tile across θ -----
 theta_min = 0
 dtheta = -3
-ntheta = 300
+ntheta = 1000
 bz_grid = np.tile(bz_r, (ntheta, 1))
 bz_flat = bz_grid.flatten()
 
