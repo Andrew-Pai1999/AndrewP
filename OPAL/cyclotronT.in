@@ -61,6 +61,8 @@ IF (false) {
 }
 OPTION, SCSOLVEFREQ    =1;                 // Defines after how many steps we compute space-charge
 OPTION, SEED           =10000;             // RNG seed for particle generation
+
+
 //-----------------------------------------------------------------------------------------------------------//
 
                                     
@@ -140,23 +142,19 @@ mm: CYCLOTRON, TYPE="CARBONCYCL", CYHARMON=2, PHIINIT=110.0, PRINIT=pr0, RINIT=r
 //SLPTC:     Slopes of the rising edge [1/mm] (for PSI-BFIELD-MIRRORED type only)
 //--------------------------------------------------------------//
 
-Rf0: RFCAVITY, VOLT=volt1st, FMAPFN="rffield1.dat", TYPE="SINGLEGAP", 
-FREQ=f1, RMIN = r1, RMAX = r2, ANGLE=35.0,  PDIS = 416.0, GAPWIDTH = 300.0, PHI0=phi01; 
+rf1: RFCAVITY, VOLT=volt1st, FMAPFN="Cav1.dat",
+     TYPE=SINGLEGAP, FREQ=20.5, RMIN=92.020,
+     RMAX=965.2, ANGLE=0,   PDIS=0.0,
+     GAPWIDTH=0.0, PHI0=phi01;
 
-Rf1: RFCAVITY, VOLT=volt1st, FMAPFN="rffield1.dat", TYPE="SINGLEGAP", 
-FREQ=f1, RMIN = r1, RMAX = r2, ANGLE=125.0, PDIS = 416.0, GAPWIDTH = 300.0, PHI0=phi02;
-.....
+rf2: RFCAVITY, VOLT=volt1st, FMAPFN="Cav1.dat",
+     TYPE=SINGLEGAP, FREQ=20.5, RMIN=92.020,
+     RMAX=965.2, ANGLE=180,   PDIS=0.0,
+     GAPWIDTH=0.0, PHI0=phi01;
+     
+// set up RF, img the the gap as 2 rf since the code is orignial designed for PSI cyltron//
 
-Rf3: RFCAVITY, VOLT=volt1st, FMAPFN="rffield1.dat", TYPE="SINGLEGAP", 
-FREQ=f1, RMIN = r1, RMAX = r2, ANGLE=215.0, PDIS = 416.0, GAPWIDTH = 300.0, PHI0=phi04;
-
-Rf4: RFCAVITY, VOLT=volt1st, FMAPFN="rffield1.dat", TYPE="SINGLEGAP", 
-FREQ=f1, RMIN = r1, RMAX = r2, ANGLE=305.0, PDIS = 416.0, GAPWIDTH = 300.0, PHI0=phi05; 
-
-Rf2: RFCAVITY, VOLT=volt3rd, FMAPFN="rffield2.dat", TYPE="SINGLEGAP", 
-FREQ=f3, RMIN = rft1, RMAX = rft2, ANGLE=260.0, PDIS = 452.0, GAPWIDTH = 250.0, PHI0=phi03; 
-
-L1:   LINE = (Ring,Rf0,Rf1,Rf2,Rf3,Rf4);
+L1:   LINE = (mm,Rf);
 
 Dist1:DISTRIBUTION, DISTRIBUTION=FROMFILE,FNAME="dist2.dat"; 
 
