@@ -142,12 +142,12 @@ mm: CYCLOTRON, TYPE="CARBONCYCL", CYHARMON=2, PHIINIT=110.0, PRINIT=pr0, RINIT=r
 //SLPTC:     Slopes of the rising edge [1/mm] (for PSI-BFIELD-MIRRORED type only)
 //--------------------------------------------------------------//
 
-rf1: RFCAVITY, VOLT=volt1st, FMAPFN="Cav1.dat",
+rf1: RFCAVITY, VOLT=volt1st, FMAPFN="Cav.dat",
      TYPE=SINGLEGAP, FREQ=20.5, RMIN=92.020,
      RMAX=965.2, ANGLE=0,   PDIS=0.0,
      GAPWIDTH=0.0, PHI0=phi01;
 
-rf2: RFCAVITY, VOLT=volt1st, FMAPFN="Cav1.dat",
+rf2: RFCAVITY, VOLT=volt1st, FMAPFN="Cav.dat",
      TYPE=SINGLEGAP, FREQ=20.5, RMIN=92.020,
      RMAX=965.2, ANGLE=180,   PDIS=0.0,
      GAPWIDTH=0.0, PHI0=phi01;
