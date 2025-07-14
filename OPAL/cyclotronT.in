@@ -69,10 +69,20 @@ OPTION, SEED           =10000;             // RNG seed for particle generation
 
 TITLE, STRING= "76 inch cyclotron";
 
+REAL pr0  = 0.0;
+REAL r0   = 0.0;
+REAL Edes = 0.0635;   // GeV
+REAL f1   = 22.5;    //RF frequency MHz
+
+REAL volt1st = 0.03;
+REAL ptg     = 1.465;
+REAL volt3rd = volt1st*4.0*0.112*ptg;
+REAL phi01 = 0;
+
 REAL Ebeam = 0.003;
 REAL gamma=(Edes+PMASS)/PMASS;
 REAL beta=sqrt(1-(1/gamma^2)); 
-REAL gambet=gamma*beta; 
+REAL gammabeta=gamma*beta; 
 REAL P0        = PMASS*gammabeta;                 // Initial momentum of the particle
 REAL Brho      = (PMASS*1.0e9*gammabeta)/CLIGHT;  // Magnetic rigidity
 
@@ -81,31 +91,7 @@ VALUE,{gamma,beta,gammabeta,Ebeam,Brho,CLIGHT};   // Prints values in output to 
 
 
 
-REAL pr0  = 0.0;
-REAL r0   = 0.0;
 
-REAL phi01 = 192.0+12;
-REAL phi02 = phi01+180.0;
-REAL phi04 = phi01;
-REAL phi05 = phi01+180.0;
-REAL phi03 = 111.40+36+2;
-
-REAL volt1st = 0.03;
-REAL ptg     = 1.465;
-REAL volt3rd = volt1st*4.0*0.112*ptg;
-
-REAL r1   = 1003.38;
-REAL r2   = 6203.38;
-REAL rft1 = 1845.45;
-REAL rft2 = 4477.24;
-
-REAL f1 =  50.65;
-REAL f3 = 3.0*f1;
-
-REAL gamma=(Edes+PMASS)/PMASS;
-REAL beta=sqrt(1-(1/gamma^2)); 
-REAL gambet=gamma*beta; 
-REAL P0 = gamma*beta*PMASS;
 
 
 ///---------cyclotron configuration---------///
