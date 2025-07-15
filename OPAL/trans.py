@@ -17,7 +17,7 @@ by_values = [f"{val:.6e}" for val in by_kG]
 
 # OPAL header values (edit these as needed)
 header_lines = [
-    "3.0e+03",   # RMIN [mm]
+    "0",   # RMIN [mm]
     "10.0",      # DR [mm]
     "0.0",       # THETAMIN [deg]
     "-3.0",      # DTHETA [deg]
